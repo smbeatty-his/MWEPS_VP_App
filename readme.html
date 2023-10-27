@@ -1,0 +1,705 @@
+<html>
+<head>
+
+<title>vpmarine_simple readme</title>
+<!-- In the Vega Prime distribution, the stylesheet can be found at $(VEGA_PRIME_*)/resources/samples -->
+<link rel="stylesheet" type="text/css" href="../../../sample_readme_style.css" />
+                
+<!-- In the Vega Prime developer tree, the stylesheet can be found at $(VEGA_PRIME_*)/resources/samples -->
+<link rel="stylesheet" type="text/css" href="../../../../resources/samples/sample_readme_style.css" />
+</head>
+<body bgcolor="#FFFFFF" class="Normal" lang=EN-US> 
+
+<div class=Section1>
+  <h1>Table of Contents</h1>
+  <p class=MsoToc3><a href="#_Toc91430288">1. Overview</a></p>
+  <p class=MsoToc3><a href="#_Toc91430289">2. Files</a></p>
+  <p class=MsoToc3><a href="#_Toc91430290">3. Application Configuration File instances</a></p>
+  <p class=MsoToc3><a href="#_Toc91430291">4. View Dependent Optics and Shading</a></p>
+  <p class=MsoToc3><a href="#_Toc91430292">4.1. Environment Mapped Bump Mapping</a></p>
+  <p class=MsoToc3><a href="#_Toc91430293">4.1.1. Global Reflections</a></p>
+  <p class=MsoToc4><a href="#_Toc91430294">4.2. Upwelling Light</a></p>
+  <p class=MsoToc4><a href="#_Toc91430296">4.2.1. Other Sources of Illuminating the Ocean</a></p>
+  <p class=MsoToc3><a href="#_Toc91430297">4.3. Local Reflections</a></p>
+  <p class=MsoToc3><a href="#_Toc91430298">5. Performance Considerations</a></p>
+  <p class=MsoToc3><a href="#_Toc91430299">5.1. Setting the Ocean's LOD Switch Distances for an EMBM Surface</a></p>
+  <p class=MsoToc3><a href="#_Toc91430300">5.2. The Impact Global and Local Reflections Have on Frame Rate</a></p>
+  <p class=MsoToc3><a href="#_Toc91430301">5.3. Choosing the Best Spatial Resolution, High Sea States, and the Choppy Waves Factor</a></p>
+  <p class=MsoToc3><a href="#_Toc91430302">5.4. NVIDIA Quadro Based Graphics Card and 3D Profile Setting</a></p>
+</div>
+
+<div class=Section1> 
+<p>
+<hr size=3 width="100%" align=center>
+<p>
+  <h1><a name="_Toc91430288">1.  Overview</a></h1>
+  <p>This sample illustrates the use of Vega Prime Marine.&nbsp; It defines
+    the class myApp, which is derived from <strong>vpApp</strong>, and overrides
+    the <strong>vpApp::onKeyInput()</strong> method to allow for additional keyboard
+    input.&nbsp; By default the sample loads vpmarine_simple.acf, which defines
+    the ocean and wave generator, as well as a Arleigh Burke definition, complete with
+    an angle bow wave, stern wake, and hull wake.&nbsp; The sample allows the
+    user to:</p> 
+  <ul>
+    <li>Attach
+      the observer to various places around the Arleigh Burke looking at the bow or
+      stern</li>
+    <li>Use
+        a motion model that spins around the Arleigh Burke with adjustable height and
+      radius of spin</li>
+    <li><span style='font-family:Symbol;
+'><span style='font:7.0pt "Times New Roman"'> </span></span>Use
+        the UFO motion model.</li>
+  </ul>
+  <p>The sample also provides keys for modifying wave parameters for the ocean.</p> 
+  <p>The description of keyboard inputs and functionality of vpApp can be found
+    in $(PRESAGIS_VEGA_PRIME_5)\docs\vegaprime\html\classvpApp.html. Additional
+    keyboard inputs for this sample are as follows:</p> 
+  <ul type=disc> 
+    <li>&#8216;+&#8217; &#8211; increase the selected wave parameter</li> 
+    <li>&#8216;-&#8217; &#8211; decrease the selected wave parameter</li> 
+    <li>F1 &#8211; select Dominant Wave Direction for modification with +/- keys</li> 
+    <li>F2 &#8211; select Wind Speed for modification with +/- keys</li> 
+    <li>F3 &#8211; select Significant Wave Height for modification with +/- keys</li> 
+    <li>F4 &#8211; select Modal Period for modification with +/- keys</li> 
+    <li>F5 &#8211; select Sea State for modification with +/- keys</li> 
+    <li>F6 &#8211; select Suppress Small Waves Factor for modification with +/-
+      keys</li> 
+    <li>F7 &#8211; select Choppy Waves Factor for modification with +/- keys</li> 
+    <li>F8 &#8211; select Wave Alignment for modification with +/- keys</li> 
+    <li>F9 &#8211; select Travel for modification with +/- keys</li> 
+    <li>F10 &#8211; select Power Law Distribution for modification with +/- keys</li> 
+    <li>F11 &#8211; select Peak Threshold for modification with +/- keys</li> 
+    <li>v &#8211; video capture</li> 
+    <li>r &#8211; select Dynamic Range for modification with +/- keys</li> 
+    <li>o &#8211; select Ship Motion Smoothing Factors for modification with +/- keys</li> 
+    <li>] &#8211; select Local Reflections Rippling Strength for modification with +/- keys</li> 
+
+    <li>[ &#8211; toggle the rendering of local reflections.</li> 
+    <li>F &#8211; toggle the freezing or thawing of the ocean.</li> 
+    <li>m &#8211; toggle the dynamic positioning of the Arleigh Burke</li> 
+    <li>c &#8211; modify the upwelling color of the ocean water.</li> 
+    <li>> &#8211; increase the time of day.</li> 
+    <li>< &#8211; decrease the time of day.</li> 
+
+    <li>Left Arrow &#8211; decrease the angular rate of spin for tether spin
+      model</li> 
+    <li>Right Arrow &#8211; increase the angular rate of spin for tether spin
+      model</li> 
+    <li>Up Arrow&#8211; move closer to tug in tether spin model</li> 
+    <li>Down Arrow &#8211; move further from tug in tether spin model</li> 
+    <li>Home &#8211; raise the observer height for tether spin model</li> 
+    <li>End &#8211; lower the observer height for tether spin model</li> 
+
+    <li>&#8216;1&#8217; &#8211; attach UFO motion model to observer</li> 
+    <li>&#8216;2&#8217; &#8211; attach tether spin motion (around Arleigh Burke) to
+      observer</li> 
+    <li>&nbsp;&#8216;3&#8217;, &#8216;4&#8217;, &#8216;5&#8217; &#8211; 3 different
+      views of Arleigh Burke bow for examining bow wave</li> 
+    <li>&#8216;6&#8217;, &#8216;7&#8217;, &#8216;8&#8217; &#8211; 3 different
+      views of Arleigh Burke stern for examining stern wake</li> 
+    <li>? &#8211; Display list of keyboard inputs</li>
+  </ul> 
+</div>
+
+<p>
+While this sample employs an observer-centered ocean, you can create four different types of oceans in 
+Vega Prime Marine.  The following table illustrates the features that each one supports.
+<p>
+<table border=1 cellpadding=0 width="90%">
+ <tr>
+  <td height=40 width=35% bgcolor="#E6E6E6" class="Normal"><b><p>Feature </b></td>
+  <td width=25% bgcolor="#E6E6E6" class="Normal"><p><b>Observer-Centered </b></td>
+  <td width=20% bgcolor="#E6E6E6" class="Normal"><p><b>Fixed Location </b></td>
+  <td width=15% bgcolor="#E6E6E6" class="Normal"><p><b>Surf Zone </b></td>
+  <td width=30% bgcolor="#E6E6E6" class="Normal"><p><b>Technique </b></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Generates 3D Procedural Geometry</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Uses Existing Database Geometry</p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Can Account for the Curvature of the Earth</p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Boundless Ocean</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Bounded Extents</p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Infinitely Deep Water Waves</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Shallow Water Waves</p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Open Architecture</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Can Perform Surface Property Queries (height, normal, velocity, etc.)</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Can Align to an Arbitrary Shoreline</p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Breaking Waves</p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Environment Mapped Bump Mapped Surface &#185;</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Global Reflections</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Local Reflections</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>White Caps</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Foam</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Back Wash</p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Wakes Conform to Ocean Surface &#178;</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+ <tr>
+  <td height=40 width=8% class="Normal"><p>Isector Support &#179;</p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center><p><img border=0 width=19 height=20 src="readme_files/checkmark.jpg"></center></p></td>
+  <td width=15% class="Normal"><p><center>&#160;</center></p></td>
+ </tr>
+</table>
+<p>
+&#185; This feature is only available when the ocean employs the module’s native wave generator.
+<p>
+&#178; Because a Technique ocean does not generate 3D procedural geometry, wakes conform to the surface 
+of the database.  All marine effects (bow waves and wakes) as well as the marine ship motion strategy 
+are seamlessly integrated to function correctly, regardless of the ocean type.
+<p>
+&#179; Because a Technique ocean does not generate 3D procedural geometry, the target of the isector 
+must be the scene; there is no underlying ocean geometry to perform intersection tests on.  Nevertheless, 
+intersection tests with the database will yield accurate hit results (with respect to the ocean surface) 
+at the nominal plane of the ocean (i.e., the ocean at rest).
+<p>
+
+<hr size=3 width="100%" align=center>
+<p>
+  <h1><a name="_Toc91430289">2.  Files</a></h1><p>
+  <table>
+  <tr><td>readme.html</td><td>-</td><td>Html documentation for the sample</td></tr>
+  <tr><td>vpmarine_simple.acf</td><td>-</td><td>Application Configuration File</td></tr>
+  <tr><td>vpmarine_simple.cpp</td><td>-</td><td>Main C++ source code file.  Contains the myApp class and main function.</td></tr>
+  <tr><td>vpmarine_simple.vcproj</td><td>-</td><td>Visual Studio project for the application</td></tr>
+  <tr><td>makefile</td><td>-</td><td>Make file to build the application under Unix.</td></tr>
+  </table>
+  <br/>
+
+<p>
+<hr size=3 width="100%" align=center>
+<p>
+  <h1><a name="_Toc91430290">3.  Application Configuration File instances</a></h1><p>
+  <table>
+  <tr><td>OceanObserverCentered</td><td>-</td><td>An observer centered ocean.</td></tr>
+  <tr><td>myMarineWaveGeneratorFFT</td><td>-</td><td>The wave generator used by the OceanObserverCentered ocean.</td></tr>
+  <tr><td>shipDef</td><td>-</td><td>The ship definition for the Arleigh Burke.</td></tr>
+  <tr><td>myMarineShipMotionStrategy</td><td>-</td><td>The ship motion strategy that animates the 
+three-dimensional response of the ship (heave, pitch, and roll) to the vpMarineOcean waves it 
+encounters.</td></tr>
+  <tr><td>myMarineFxBowWaveAngled</td><td>-</td><td>The bow wave for the Arleigh Burke.</td></tr>
+  <tr><td>myMarineFxSternWake</td><td>-</td><td>The stern wake for the Arleigh Burke.</td></tr>
+  <tr><td>myMarineFxHullWake</td><td>-</td><td>The hull wake for the Arleigh Burke.</td></tr>
+  </table>
+ <p>
+ Note:  The ship definition for the Arleigh Burke specifies a beam of 9 meters. The beam represents the
+ extreme width of the ship (which, for an Arleigh Burke is 20 meters), so at first glance this may seem 
+ confusing considering the width at the origin is 17 meters. The reason for this is that the beam is used
+ in the computations for modeling the bow wave, and the bow frame of the Arleigh Burke is very narrow and
+ does not extend out to the beam in a straight line.  
+<p>
+<hr size=3 width="100%" align=center>
+<p>
+<h1><a name="_Toc91430291">4.  View Dependent Optics and Shading</a></h1>
+<p>
+The optical character of the ocean water surface is, essentially, a nearly complete specular 
+reflector of a fraction of the light incident on it, while transmitting or refracting the rest 
+of the light.  There is no diffuse reflectivity for water surfaces.  Other factors such as 
+whitecaps and upwelling light from below the surface add to the lighting process.
+<p>
+Vega Prime Marine models five optical phenomena associated with the ocean environment:
+<ol>
+  <li>Reflection of the skylight (including the sun or moon light) off of the surface.</li>
+  <li>Local reflections (ships, lights, buildings) on the surface.</li>
+  <li>Refraction / transmission of skylight through the surface.</li>
+  <li>Light upwelling from the water volume.</li>
+  <li>Light from shallow water bottom (applicable only in the shallowest depths).</li>
+</ol>
+
+<p>
+Vega Prime Marine employs programmable vertex and fragment shaders to render realistic, view
+dependent optics (i.e., the reflection, refraction, and propagation of light) and shading effects.
+The ocean's aesthetics are congruent with the corresponding time of day as well as the elevation
+of the dominant celestial body (the sun or moon), such that:
+<ul type=disc>
+  <li>The lighting path of the dominant celestial body is accurate.</li>
+  <li>The lighting of the ocean, when the dominant celestial body approaches and then goes below the
+      horizon, is accurate.</li>
+  <li>One is unable to see the horizon when no celestial body is above the horizon (a common problem
+      that mariners experience).</li>
+</ul>
+<p>
+When shaders are enabled (via the <b>vpMarineOcean's</b> API or <a href="#_img1">LynX Prime panel</a>), Vega
+Prime Marine renders the view dependent optics and shading differently, depending upon whether the
+wave generator produces a surface that is periodic or not.
+<p>
+If the wave generator produces a surface by tiling a periodic, regular grid (such as the
+<b>vpMarineWaveGeneratorFFT</b>), then the module employs Environment Mapped Bump Mapping (EMBM) to render the
+water surface.  EMBM is a process of introducing apparently high detail to a surface through two textures
+without increasing the geometric complexity.  The first texture does not represent color or transparency,
+but instead represents perturbations of the surface normals to alter lighting.  This texture is based on
+a high-resolution normal map applied across and within facets of the geometry.  The high resolution normal
+map must be periodic for tiling purposes, and is produced by the wave generator.  The second texture is
+the environment map.  It represents the scene surrounding the ocean.  When the ocean is rendered, both of
+these textures are used to compute accurate reflections of the environment.
+<p>
+If the wave generator produces a surface that is not periodic, then the rendering engine produces
+a surface that is textured (with textures that provide for differentiable and recognizable sea states),
+and lit via per-vertex sun glint.  This scenario would apply to surf zone oceans and oceans that employ
+user-defined wave generators plugged into the module's Open Programming Architecture.
+<p>
+In terms of computational load, per-vertex lighting is much faster than per-fragment EMBM (resulting in
+higher frame rates for the former).  Conversely, in terms of the optics and realism, per-vertex lighting
+does not appear nearly as compelling as per-fragment EMBM, which simulates both reflected and refracted
+light.
+
+
+<h2><a name="_Toc91430292">4.1.  Environment Mapped Bump Mapping</a></h2>
+<p>
+Environment mapping simulates an object reflecting its surroundings.  Environment mapping assumes that
+an object's environment (i.e., everything surrounding it) is infinitely distant from the object and,
+therefore, can be encoded in an omni directional image known as an environment map.
+<p>
+There are a variety of ways to perform environment mapping in computer graphics, and EMBM is a high-end
+method that requires the newest generation of GPUs (the recommended graphics card is an <i>n</i>VIDIA 6800
+series or better).  The module's implementation of EMBM employs a type of texture known as a cube map
+for the environment map.  A cube map consists of not one, but six square texture images that fit together
+like the faces of a cube.  Together, these six images form an omni directional image that is used to
+encode the environment map, representing the surrounding area from the point of view of the ocean.
+
+<p><font size = 4>
+<b><a name="_Toc91430293">4.1.1.  Global Reflections</a></b>
+</font>
+<p>
+Global reflections are reflections from objects that could be considered to be infinitely far 
+away.  While it is clearly not infinitely far away, the sky is a good example of an object that 
+can be considered as such, and where global reflections are appropriate.  This is because when 
+looking only at the sky, we do not realize that we are moving unless we travel great distances 
+and at great speed.  Thus, it is suitable to use a cube map lookup for these reflections.
+<p>
+With shaders enabled, you have the option of automatically generating dynamic or static global reflections 
+of the sky on the ocean surface.  This is accomplished via the "Environment Map" text entry box in LynX Prime 
+(on the MarineOceanObserverCentered and MarineOceanFixedLocation <a href="#_img1">panels</a>).  Leaving this 
+text entry box empty results in dynamic reflections on the water surface (based on the actual current Vega Prime 
+environment).  Specifying a cube map texture file (such as "cubemap_cloudy.dds", which is included in the 
+distribution) in the text entry box results in static reflections on the water surface.
+<p>
+Dynamic global reflections add substantially to the computational load and so may not be practical in some 
+situations.   
+<p>
+<a name="_img1"></a><p></a> <img border=0 width=399 height=336
+src="readme_files/image001.bmp" v:shapes="_x0000_i1025">
+<br><font size = 2>
+<b>Figure 1.</b>  The Appearance frame on the <b>vpMarineOcean</b> LynX Prime panel.
+</font>
+<p>
+This functionality can also be accomplished via the <b>vpMarineOcean's</b> API 
+(<a href="#_func2">setEnvironmentMapTextureFile()</a>).  To activate dynamic environment maps, 
+pass the empty string, "", to setEnvironmentMapTextureFile().  
+<p>
+Rendering dynamic global reflections requires the newest generation of GPUs.  While static environment 
+maps do not necessarily represent the actual Vega Prime skydome, they do offer users with older 
+graphics hardware the ability to have fairly realistic reflections of the sky on the ocean surface.
+<p>
+The contribution of the reflected colors is modulated by the illumination brightness of the Vega 
+Prime environment.  Users may alter how the environment map contribution is modulated via API 
+(only) through the <b>vpMarineOcean</b> member function, <a href="#_func1">setDynamicRange()</a>.
+<p>
+
+
+<h2><a name="_Toc91430294">4.2  Upwelling Light</a></h2>
+<p>
+Three aspects of the underwater environment are relevant to the optical processes that generate the
+final appearance of the ocean surface:
+<ol>
+  <li>The color / texture of the bottom.</li>
+  <li>The color of the water volume.</li>
+  <li>The clarity of the water volume.</li>
+</ol>
+<p>
+Clarity varies widely throughout the open ocean and in the littoral zone nearshore.  Ocean water
+attenuates light in its volume differently in different color bands.  There is no intrinsic water
+color - it is the accumulation of scattering and absorption processes and varies with depth and water
+type.  Vega Prime Marine approximates these phenomena by computing a view dependent upwelling color of
+the water.
+<p>
+Via the <b>vpMarineOcean's</b> API (<a href="#_func3">setOverallColor()</a>) or <a href="#_img1">LynX 
+Prime panel</a> (the Overall Color widget), users can specify a fixed, intrinsic upwelling color of the
+ocean, which is used in the dynamic, view dependent, upwelling color computation.  The final appearance
+of the ocean surface comes from the dynamically computed view dependent upwelling color, and the sun
+(or moon) and sky light that passes down into the water volume, multiplied by the effective bulk
+reflectivity of the water volume.
+<p>
+If SkyLight is enabled, then the upwelling color should be a small bias in order to allow the 
+fresnel reflectivity to work correctly (and not be oversaturated).  The vpmarine carrier 
+landing, multi-channel, occlusion, and simple demos demonstrate some good upwelling colors representing 
+various underwater environments.  The 'c' key can be used to cycle through these colors. 
+<p>
+If shaders are disabled and/or the ocean's wave generator produces a surface that is <b>not</b> periodic,
+then the overall color of the ocean is modulated (blended) with the colors and alpha in the ocean texture.
+Since the ocean textures were created for certain sea states and weather conditions, with a lot of the sky
+color already built into the texture, a good choice for the overall color is white.  However, for a wave
+generator that produces a periodic surface, the overall color behaves very differently, as described
+above.
+
+<p><font size = 4>
+<b><a name="_Toc91430296">4.2.1  Other Sources of Illuminating the Ocean</a></b></font>
+<p>
+Vega Prime Marine has been successfully integrated with Vega Prime Light Lobes, such that light lobes
+accurately illuminate the ocean's surface, regardless of whether shaders are enabled.  OpenGL spot or
+directional lights illuminate the water correctly when shaders are disabled.  However, when the shaders
+are enabled, the vertex and fragment shader programs will not correctly account for any OpenGL lights
+in the scenegraph.
+<p>
+
+
+<h2><a name="_Toc91430297">4.3  Local Reflections</a></h2>
+<p>
+Local reflections are defined as reflections from objects that cannot be considered to be 
+infinitely far away (e.g., ships, buildings, lights, etc.).  For these types of reflections, 
+the position of the reflecting surface matters, and the reflection is dependent on the 
+angle from where it reflects.
+<p>
+When shaders are enabled, local reflections can be enabled or disabled on the ocean surface via 
+the <b>vpMarineOcean's</b> API (<a href="#_func7">setLocalReflectionsEnable()</a>) or 
+<a href="#_img1">LynX Prime panel</a>.
+<p>
+Local reflections add substantially to the computational load and so may not be practical in 
+some situations.  For example, if an ocean is referenced by multiple observers, accurate local 
+reflections are computed for each observer.  For each additional observer, the computational 
+load increases accordingly.
+<p>
+The local reflections on the ocean surface contain a rippling distortion effect that is dependent 
+on the surface normal, and thus dependent on the individual waves.  The magnitude of the rippling 
+distortion can be controlled by setting the rippling strength coefficient either via the 
+<b>vpMarineOcean's</b> API (<a href="#_func8">setLocalReflectionsRipplingStrength()</a>) or 
+<a href="#_img1">LynX Prime panel</a>.
+
+
+<p>
+<hr size=3 width="100%" align=center>
+<p>
+<h1><a name="_Toc91430298">5.  Performance Considerations</a></h1>
+
+<h2><a name="_Toc91430299">5.1  Setting the Ocean's LOD Switch Distances for an EMBM Surface</a></h2>
+<p>
+Each distance in the ocean's array of LOD switch distances represents the range (from the observer) at
+which the ocean cells will switch from one LOD to another.  In other words, the geometric complexity of
+the ocean decreases in each subsequent switch range.
+<p>
+The high resolution normal map is generated by the wave generator and corresponds to the high frequency
+ocean waves.  As a result, the rendering fidelity of the ocean is only dependent on the normal map
+resolution and <b>not</b> on the geometric complexity of the ocean cells.  This enables the user to
+select a higher mesh resolution (for the wave generator), yet have smaller switch ranges with respect to
+the range where the highest level of detail cells exist (thereby reducing the ocean's geometric
+complexity).  For example, the following table illustrates the ocean's geometric complexity if the wave 
+generator were to be configured to have a 128x128 mesh resolution and cell extents of 64x64 m, and the 
+ocean were to be configured with the following switch distances and a far clip plane of 3500 meters:
+<p>
+<table border=1 cellpadding=0 width="40%">
+ <tr>
+  <td width=8% bgcolor="#E6E6E6" class="Normal"><b><p>Switch Range (m)</b></td>
+  <td width=8% bgcolor="#E6E6E6" class="Normal"><p><b>Ocean Cell LOD</b></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>[0 ... 1]</p></td>
+  <td width=8% class="Normal"><p>128x128</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>(1 ... 65]</p></td>
+  <td width=8% class="Normal"><p>64x64</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>(65 ... 385]</p></td>
+  <td width=8% class="Normal"><p>32x32</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>(385 ... 481]</p></td>
+  <td width=8% class="Normal"><p>16x16</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>(481 ... 673]</p></td>
+  <td width=8% class="Normal"><p>8x8</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>(673 ... 2000]</p></td>
+  <td width=8% class="Normal"><p>4x4</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>(2000 ... 3500]</p></td>
+  <td width=8% class="Normal"><p>2x2</p></td>
+ </tr>
+</table>
+<p>
+In this configuration:
+<ol>
+  <li>You would almost never see a 128x128 ocean cell (unless you were within one meter of the water
+      surface)</li>
+  <li>You would see at most four 64x64 ocean cells (the cells closest to the observer).</li>
+  <li>The normals in the high resolution normal map would be half a meter apart (64 m / 128).</li>
+</ol>
+<p>
+Games typically use normal maps to add fine detail on the order of one normal every one or two
+centimeters.  These fine detail normals then typically get faded out with distance.  For modeling
+large bodies of water, that kind of resolution is really not a viable option.  Nevertheless, the rule
+of thumb is, the closer your normals are, the higher the detail and fidelity of the water surface.
+<p>
+Setting the first switch range distance to one database unit is an excellent performance enhancement 
+for very high mesh resolutions (e.g., 128x128).  However, for lower mesh resolutions limiting this range 
+to two or three times your (wave generator's) cell extents is a good choice and will ensure that only 
+cells with the highest mesh resolution (and geometric complexity) are rendered within the immediate 
+proximity of the observer.
+<p>
+
+
+<h2><a name="_Toc91430300">5.2  The Impact Global and Local Reflections Have on Frame Rate</a></h2>
+<p>
+Vega Prime Marine creates up to two "invisible" channels depending on how the application is configured.  One 
+channel is for capturing <a href="#_Toc91430293">global reflections</a> and the second channel is for capturing 
+<a href="#_Toc91430297">local reflections</a>.
+<p>
+Because of the rendering to these hidden channels, Vega Prime's channel statistics (frame rate, and app, cull, and 
+draw time) can be misleading.  For example, given an application with one visual channel, the draw time will be 
+accurate with respect to the time that was required to render the scene to the visual channel.  It will not, 
+however, measure the time that was required to render to the two hidden channels.  The frame rate will, of course, 
+be impacted by the rendering to all three channels.  This would explain why the frame rate is 30 Hz, with an app 
+time = 3 ms, cull time = 1 ms, and draw time = 6 ms.  Since all three channels are connected to the same pipeline, 
+a more accurate draw time metric would be the Draw Latency Time, which is available on Vega Prime's pipeline 
+statistics page.
+<p>
+Clearly, the visual scene is much more realistic with both types of reflections, but for simulations with
+stringent performance requirements, it may make sense to disable one or both types of reflections.
+<p>
+From the MarineOcean panel in LynX Prime, you can provide a static cubic texture for the environment map (one is 
+provided with the distribution - cubemap_cloudy.dds), which will lead to no hidden channel created.  This, in 
+effect, disables dynamic environment mapped bump mapping (EMBM).  However, Vega Prime Marine still renders an 
+EMBM surface; albeit with a static environment map.  You can also disable local reflections in the Shaders 
+frame.  This, too, will lead to no hidden channel created.
+<p> 
+Both of these options must be chosen before Vega Prime is configured.
+
+
+<p>
+<hr size=3 width="100%" align=center>
+<p>
+<h2><a name="_Toc91430301">5.3  Choosing the Best Spatial Resolution, High Sea States, and the Choppy Waves Factor</a></h2>
+<p>
+One very important criterion in modeling ocean behavior is choosing the best spatial resolution.  The
+correct spatial resolution depends on whether you are modeling small waves or large swells.  Spatial
+resolution is characterized by two distinct but interrelated metrics:
+<p>
+<ol>
+  <li>Mesh Resolution</li>
+  <li>Ocean Cell Extents</li>
+</ol>
+<p>
+Dividing the ocean cell extents by the mesh resolution yields the ground sample distance between vertices.
+<p>
+For example, the smallest possible wavelength that a wave generator (configured to have a 128x128 mesh
+resolution and cell extents of 64x64 meters) can detect is half a meter (64 m / 128).  A wave generator
+configured with a mesh resolution of 32x32, and 100x100 meter cell extents, cannot detect waves smaller
+than about 3.1 meters (100 m / 32 ).  Conversely, for higher sea states, the cell extents need to cover
+at least twice the longest possible wavelength in order to see a complete cycle of the wave; otherwise
+aliasing occurs in the sampling of the wave.  At the higher sea states, if the cell extents are relatively
+small (e.g., below 200 meters), aliasing can result, leading to only part of the wave being sampled before
+it is repeated.  This anomaly, at the highest sea states, can make the ocean wave forms take on an egg
+carton shaped appearance.
+<p>
+For the larger sea states it actually makes more sense to have larger cell extents in order to capture the
+larger wavelengths.  Simulated wave surfaces hold waves of many different wavelengths.  However, the range
+of waves is band-limited.  For each Beaufort sea state, the longest possible wavelength in the simulation
+is computed to be:
+<p>
+<table border=1 cellpadding=0 width="30%">
+ <tr>
+  <td width=8% bgcolor="#E6E6E6" class="Normal"><b><p>Sea State</b></td>
+  <td width=15% bgcolor="#E6E6E6" class="Normal"><p><b>Longest Possible Wavelength (m)</b></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>0</p></td>
+  <td width=15% class="Normal"><p>0.007</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>1</p></td>
+  <td width=15% class="Normal"><p>0.108</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>2</p></td>
+  <td width=15% class="Normal"><p>0.675</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>3</p></td>
+  <td width=15% class="Normal"><p>1.95</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>4</p></td>
+  <td width=15% class="Normal"><p>6.07</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>5</p></td>
+  <td width=15% class="Normal"><p>10.79</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>6</p></td>
+  <td width=15% class="Normal"><p>16.87</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>7</p></td>
+  <td width=15% class="Normal"><p>25.9</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>8</p></td>
+  <td width=15% class="Normal"><p>36.94</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>9</p></td>
+  <td width=15% class="Normal"><p>52.24</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>10</p></td>
+  <td width=15% class="Normal"><p>70.19</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>11</p></td>
+  <td width=15% class="Normal"><p>93.93</p></td>
+ </tr>
+ <tr>
+  <td width=8% class="Normal"><p>12</p></td>
+  <td width=15% class="Normal"><p>114.0</p></td>
+ </tr>
+</table>
+
+<p>
+The sample, <b>vpmarine_multichan</b>, employs two oceans and two wave generators; one to model the lower sea
+states and one to model the higher sea states.  Both wave generators have a mesh resolution of 64x64, but
+the wave generator that models the low sea states has cell extents of 86x86 meters versus 256x256 meters
+for the high sea state wave generator.
+<p>
+An extremely large choppy waves factor combined with a high sea state (Beaufort sea state 6 or above) can
+produce corrupted surface queries (i.e., getHeight(), getNormal(), getVelocity()) on almost vertical wave
+fronts or at extreme points near the sharp crest of a wave.  The corrupted surface queries will be
+especially noticeable on wakes.  Stern and hull wakes are simulated by draping a textured mesh onto the
+surface of a <b>vpMarineOcean</b>.  Since they can be comprised of thousands of vertices – each of which queries
+getHeight() – the corrupted queries will manifest themselves as spikes in the wake.
+<p>
+This anomaly can be resolved by simply increasing the cell extents of the <b>vpMarineWaveGenerator</b>, which
+also results in a greater ground sample distance between the vertices that comprise the ocean.  For
+example, if this anomaly is encountered with a mesh resolution of 32x32 and cell extents of 100x100 meters,
+then increasing the cell extents to 200x200 meters should resolve the problem.
+<p>
+This anomaly can also be experienced with a small choppy waves factor, combined with a very high sea state
+(Beaufort sea state 10 or above) and a very small spatial resolution.  For example, the samples
+<b>vpmarine_simple</b> and <b>vpmarine_carrier_landing</b> both have very small spatial resolutions (1.28 and 1.0 meters,
+respectively), and a small choppy waves factor, but both suffer from this anomaly at sea state 10 or above.
+Again, the solution is to simply increase the wave generator's cell extents to be at least 200x200 meters.
+For sea states 10 and above, cell extents up to 400x400 meters do well in capturing the large swells
+associated with these sea states.
+<p>
+
+<h2><a name="_Toc91430302">5.4  NVIDIA Quadro Based Graphics Card and 3D Profile Setting</a></h2>
+<p>
+If you are using an NVIDIA Quadro based graphics card, you may encounter regular drops in frame rate when
+viewing a scene containing an ocean (usually an observer-centered ocean). If this is the case, you should
+consider modifying the 3D profile from the NVIDIA Control Panel. This setting can be found in the Manage
+3D Settings section and should be set to <b>3D App - Visual Simulation</b> for smooth results.
+<p>
+
+</body>
+</html>

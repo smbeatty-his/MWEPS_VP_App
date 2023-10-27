@@ -1,0 +1,98 @@
+<Scenario name = "BoatScenario">
+  <Description>Boat Scenario, two boats one static one moving, add description.</Description>
+  <Environment>BoatScenario.acf</Environment>
+  <EffectTypes>
+    <Effect name = "Splash">
+      <Filename>SplashEffect.acf</Filename>
+    </Effect>
+    <Effect name = "Flame">
+      <Filename>FlameEffect.acf</Filename>
+    </Effect>
+    <Effect name ="Smoke">
+      <Filename>SmokeEffect.acf</Filename>
+    </Effect>
+  </EffectTypes>
+  <SoundFiles>
+    <SoundAmbient name = "Gunshot">
+      <Filename>gunshot.wav</Filename>
+      <Looping>0</Looping>
+      <ReleaseOnCompletion>0</ReleaseOnCompletion>
+    </SoundAmbient>
+    <SoundNode name = "Splash">
+      <Filename>exp35.wav</Filename>
+      <Looping>0</Looping>
+      <ReleaseOnCompletion>1</ReleaseOnCompletion>
+    </SoundNode>
+    <SoundNode name = "Plink">
+      <Filename>splash.wav</Filename>
+      <Looping>0</Looping>
+      <ReleaseOnCompletion>1</ReleaseOnCompletion>
+    </SoundNode>
+  </SoundFiles>
+  <Crosshair>
+    <Filename>redaim.png</Filename>
+    <Scale>0.03125, 0.05</Scale>
+  </Crosshair>
+  <SurfaceTypes>
+    <SurfaceType name ="Metal">
+      <HitSound> Plink </HitSound>
+      <HitEffect> Smoke </HitEffect>
+      <HitEffectScale> 1.0, 1.0, 1.0 </HitEffectScale>
+    </SurfaceType>
+  </SurfaceTypes>
+  <WayPointSets>
+    <Filename>TestPointSets.acf</Filename>
+  </WayPointSets>
+  <ScenarioEndTime>
+    <EndTime>60.0</EndTime>
+  </ScenarioEndTime>
+  <MouseCursorEnabled> 0 </MouseCursorEnabled>
+  <OceanEnabled> 1 </OceanEnabled>
+	<TargetTypes>
+		<Target name = "BoatTarget">
+			<Filename>BoatTarget.xml</Filename>
+		</Target>		
+	</TargetTypes>
+	<TargetInstances>
+		<Target name = "Target1">
+			<Type>BoatTarget</Type>
+			<Position> 500, 500, 0 </Position>
+			<Rotation> 0, 0, 0 </Rotation>
+      <Scale> 1, 1, 1 </Scale>
+			<StartTime> 0 </StartTime>
+      <WayPointSets>
+        <WayPointSet>
+          <SetName>PathWayPointSet3</SetName>
+        </WayPointSet>
+      </WayPointSets>
+      <StartPathIndex>0</StartPathIndex>
+      <StartWayPointIndex>0</StartWayPointIndex>
+      <SteeringBehaviors>
+        <SteeringBehavior>
+          <Type>FollowPathBehavior</Type>
+          <Weight>1.0</Weight>
+        </SteeringBehavior>
+      </SteeringBehaviors>
+		</Target>
+		<Target name = "Target2">
+			<Type>BoatTarget</Type>
+			<Position> 125, 250, 0 </Position>
+			<Rotation> 0, 0, 0 </Rotation>
+      <Scale> 1, 1, 1 </Scale>
+			<StartTime> 0 </StartTime>
+      <WayPointSets>
+        <WayPointSet>
+          <SetName>PathWayPointSet2</SetName>
+        </WayPointSet>
+      </WayPointSets>
+      <StartPathIndex>0</StartPathIndex>
+      <StartWayPointIndex>0</StartWayPointIndex>
+      <SteeringBehaviors>
+        <SteeringBehavior>
+          <Type>FollowPathBehavior</Type>
+          <Weight>1.0</Weight>
+        </SteeringBehavior>
+      </SteeringBehaviors>
+		</Target>
+	</TargetInstances>
+</Scenario>

@@ -1,0 +1,33 @@
+<Target name = "BoatTarget">
+  <ClassType>MarineSteeringTarget</ClassType>
+  <Filename>BoatTarget.acf</Filename>
+  <HitPoints> 20 </HitPoints>
+  <MaxSpeed> 25 </MaxSpeed>
+  <MaxForce> 10 </MaxForce>
+  <DecelerationRate> .8 </DecelerationRate>
+  <HitPointThresholds> 15, 10, 5, 0 </HitPointThresholds>
+  <HitDecrement> 1 </HitDecrement>
+  <Effect name = "Flame">
+    <TargetState> 3 </TargetState>
+    <Scale>2.0, 2.0, 2.0</Scale>
+    <Offset> 0.0, 0.0, 0.0 </Offset>
+  </Effect>
+  <HitRegions>
+    <HitRegion name ="SQWHT01">
+      <ClassType>HitRegion</ClassType>
+      <HitPoints> 20 </HitPoints>
+      <AreaHitPointValue> 5 </AreaHitPointValue>
+      <HitPointThresholds> 15, 10, 5, 0 </HitPointThresholds>
+      <HitDecrement> 1 </HitDecrement>
+      <SurfaceType> Metal </SurfaceType>
+    </HitRegion> 
+  </HitRegions>
+  <Sounds>
+    <Sound name ="Splash">
+      <StartState>2</StartState>
+      <EndState>7</EndState>
+      <Looping>1</Looping>
+      <ClassType>SoundAttachedNode</ClassType>
+    </Sound>
+  </Sounds>
+</Target>

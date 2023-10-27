@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <ProjectName>MWEPS</ProjectName>
+    <ProjectGuid>{E9EF7C19-059E-4DA8-B0DB-8D0072AB2CCA}</ProjectGuid>
+    <RootNamespace>vpmarine_simple</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\resources\samples\samples_debug_64_vc142.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\resources\samples\samples_debug_64_vc142.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\resources\samples\samples_debug_64_vc142.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\resources\samples\samples_debug_64_vc142.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>17.0.33815.168</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>.\</OutDir>
+    <IntDir>$(Configuration)_64_vc22\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>.\</OutDir>
+    <IntDir>$(Configuration)_64_vc22\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(PRESAGIS_VEGA_PRIME)\include\vsg;$(PRESAGIS_VEGA_PRIME)\include\vegaprime;c:\MWEPS tools\tinyXML2;.\;C:\MWEPS tools\OpenAL 1.1 SDK\include;C:\MWEPS tools\Alut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;NO_SHARE_TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>OpenAL32.lib;alut.lib;tinyxml2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(PRESAGIS_VEGA_PRIME_LIB);C:\MWEPS tools\OpenAL 1.1 SDK\libs\Win64\;c:\MWEPS tools\tinyXML2\vs\x64\Debug;C:\MWEPS tools\Alut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(PRESAGIS_VEGA_PRIME)\include\vsg;$(PRESAGIS_VEGA_PRIME)\include\vegaprime;c:\MWEPS tools\tinyXML2;.\;C:\MWEPS tools\OpenAL 1.1 SDK\include;C:\MWEPS tools\freealut-1.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX64</TargetMachine>
+      <AdditionalLibraryDirectories>$(PRESAGIS_VEGA_PRIME_LIB);C:\MWEPS tools\OpenAL 1.1 SDK\libs\Win64\;c:\MWEPS tools\tinyXML2\vs\x64\Debug;C:\MWEPS tools\freealut-1.1.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenAL32.lib;alut.lib;tinyxml2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>c:\TinyXML;.\;C:\Program Files (x86)\OpenAL 1.1 SDK\include;C:\Program Files (x86)\Alut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NO_SHARE_TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>OpenAL32.lib;alut.lib;tinyxml.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>c:\TinyXML;C:\Program Files (x86)\OpenAL 1.1 SDK\libs\Win32\;C:\Program Files (x86)\Alut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <Link>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX64</TargetMachine>
+      <AdditionalLibraryDirectories>$(PRESAGIS_VEGA_PRIME_LIB);C:\MWEPS tools\OpenAL 1.1 SDK\libs\Win64\;C:\MWEPS tools\tinyXML2\vs\x64\Debug;C:\MWEPS tools\freealut-1.1.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OpenAL32.lib;alut.lib;tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(PRESAGIS_VEGA_PRIME)\include\vsg;$(PRESAGIS_VEGA_PRIME)\include\vegaprime;C:\MWEPS tools\tinyXML2;.\;C:\MWEPS tools\OpenAL 1.1 SDK\include;C:\MWEPS tools\freealut-1.1.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="AARManager.cpp" />
+    <ClCompile Include="AimManager.cpp" />
+    <ClCompile Include="AimRecord.cpp" />
+    <ClCompile Include="ALBuffer.cpp" />
+    <ClCompile Include="ALController.cpp" />
+    <ClCompile Include="ALListener.cpp" />
+    <ClCompile Include="ALSound.cpp" />
+    <ClCompile Include="ALSoundAmbient.cpp" />
+    <ClCompile Include="ALSoundSpatial.cpp" />
+    <ClCompile Include="ALSource.cpp" />
+    <ClCompile Include="ArriveBehavior.cpp" />
+    <ClCompile Include="AttachedParticleSystem.cpp" />
+    <ClCompile Include="AudioListener.cpp" />
+    <ClCompile Include="AutoFiringMode.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
+    <ClCompile Include="BulletRecord.cpp" />
+    <ClCompile Include="BurstFiringMode.cpp" />
+    <ClCompile Include="DefaultBehaviorState.cpp" />
+    <ClCompile Include="FactoryManager.cpp" />
+    <ClCompile Include="FollowPathBehavior.cpp" />
+    <ClCompile Include="GunManager.cpp" />
+    <ClCompile Include="HitRegion.cpp" />
+    <ClCompile Include="HitRegionParser.cpp" />
+    <ClCompile Include="IHitRegion.cpp" />
+    <ClCompile Include="ISound.cpp" />
+    <ClCompile Include="ITarget.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MarineSteeringTarget.cpp" />
+    <ClCompile Include="MarineTarget.cpp" />
+    <ClCompile Include="MWEPSApp.cpp" />
+    <ClCompile Include="OceanManager.cpp" />
+    <ClCompile Include="ParticleSystemManager.cpp" />
+    <ClCompile Include="PerformanceLogger.cpp" />
+    <ClCompile Include="ScenarioParser.cpp" />
+    <ClCompile Include="SeekBehavior.cpp" />
+    <ClCompile Include="SingleShotFiringMode.cpp" />
+    <ClCompile Include="SoundAmbient.cpp" />
+    <ClCompile Include="SoundAttachedNode.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="SoundNode.cpp" />
+    <ClCompile Include="SteeringController.cpp" />
+    <ClCompile Include="SteeringTarget.cpp" />
+    <ClCompile Include="SurfaceType.cpp" />
+    <ClCompile Include="TargetManager.cpp" />
+    <ClCompile Include="TargetParser.cpp" />
+    <ClCompile Include="TargetRecord.cpp" />
+    <ClCompile Include="TPManager.cpp" />
+    <ClCompile Include="ViewManager.cpp" />
+    <ClCompile Include="WBIEDTarget.cpp" />
+    <ClCompile Include="WeatherManager.cpp" />
+    <ClCompile Include="XMLParser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AARManager.h" />
+    <ClInclude Include="AimManager.h" />
+    <ClInclude Include="AimRecord.h" />
+    <ClInclude Include="ALBuffer.h" />
+    <ClInclude Include="ALController.h" />
+    <ClInclude Include="ALListener.h" />
+    <ClInclude Include="ALSound.h" />
+    <ClInclude Include="ALSoundAmbient.h" />
+    <ClInclude Include="ALSoundSpatial.h" />
+    <ClInclude Include="ALSource.h" />
+    <ClInclude Include="ArriveBehavior.h" />
+    <ClInclude Include="AttachedParticleSystem.h" />
+    <ClInclude Include="AttackBehaviorState.h" />
+    <ClInclude Include="AudioListener.h" />
+    <ClInclude Include="AutoFiringMode.h" />
+    <ClInclude Include="BulletManager.h" />
+    <ClInclude Include="BulletRecord.h" />
+    <ClInclude Include="BurstFiringMode.h" />
+    <ClInclude Include="CharPointer.h" />
+    <ClInclude Include="DebugUtil.h" />
+    <ClInclude Include="DefaultBehaviorState.h" />
+    <ClInclude Include="Factory.h" />
+    <ClInclude Include="FactoryManager.h" />
+    <ClInclude Include="FollowPathBehavior.h" />
+    <ClInclude Include="GunManager.h" />
+    <ClInclude Include="HitRegion.h" />
+    <ClInclude Include="HitRegionParser.h" />
+    <ClInclude Include="IBehaviorState.h" />
+    <ClInclude Include="IFiringMode.h" />
+    <ClInclude Include="IHitRegion.h" />
+    <ClInclude Include="ISound.h" />
+    <ClInclude Include="ISteeringBehavior.h" />
+    <ClInclude Include="ITarget.h" />
+    <ClInclude Include="MarineSteeringTarget.h" />
+    <ClInclude Include="MarineTarget.h" />
+    <ClInclude Include="MWEPSApp.h" />
+    <ClInclude Include="OceanManager.h" />
+    <ClInclude Include="ParticleSystemManager.h" />
+    <ClInclude Include="PerformanceLogger.h" />
+    <ClInclude Include="ScenarioParser.h" />
+    <ClInclude Include="SeekBehavior.h" />
+    <ClInclude Include="SingleShotFiringMode.h" />
+    <ClInclude Include="SoundAmbient.h" />
+    <ClInclude Include="SoundAttachedNode.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="SoundNode.h" />
+    <ClInclude Include="StationaryTarget.h" />
+    <ClInclude Include="SteeringController.h" />
+    <ClInclude Include="SteeringTarget.h" />
+    <ClInclude Include="SurfaceType.h" />
+    <ClInclude Include="TargetManager.h" />
+    <ClInclude Include="TargetParser.h" />
+    <ClInclude Include="TargetRecord.h" />
+    <ClInclude Include="TPManager.h" />
+    <ClInclude Include="ViewManager.h" />
+    <ClInclude Include="WBIEDTarget.h" />
+    <ClInclude Include="WeatherManager.h" />
+    <ClInclude Include="XMLParser.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

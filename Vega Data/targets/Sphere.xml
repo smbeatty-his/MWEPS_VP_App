@@ -1,0 +1,34 @@
+<Target name = "Sphere">
+  <ClassType>MarineTarget</ClassType>
+  <Filename>Sphere.acf</Filename>
+  <HitPoints> 20 </HitPoints>
+  <MaxSpeed> 25 </MaxSpeed>
+  <MaxForce> 10 </MaxForce>
+  <DecelerationRate> .8 </DecelerationRate>
+  <HitPointThresholds> 15, 10, 5, 0 </HitPointThresholds>
+  <HitDecrement> 1 </HitDecrement>
+  <Effect name = "Flame">
+    <TargetState> 3 </TargetState>
+    <Scale>1.0, 1.0, 1.0</Scale>
+    <Offset> 0.0, 0.0, 0.0 </Offset>
+  </Effect>
+  <HitRegions>
+    <HitRegion name ="outer">
+      <ClassType>HitRegion</ClassType>
+      <HitPoints> 20 </HitPoints>
+      <AreaHitPointValue> 5 </AreaHitPointValue>
+      <HitPointThresholds> 15, 10, 5, 0 </HitPointThresholds>
+      <HitDecrement> 1 </HitDecrement>
+      <SurfaceType> Metal </SurfaceType>
+    </HitRegion> 
+  </HitRegions>
+  <Sounds>
+    <Sound name ="Splash">
+      <StartState>2</StartState>
+      <EndState>7</EndState>
+      <Looping>1</Looping>
+      <ClassType>SoundAttachedNode</ClassType>
+    </Sound>
+  </Sounds>
+  <CenterOfMassOffset> 0.0, 0.0, 1.5 </CenterOfMassOffset>
+</Target>

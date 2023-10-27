@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\OpenAL">
+      <UniqueIdentifier>{5673df95-ef6d-40c9-950a-457773424fb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{9fb022ca-4fcd-45dd-842f-822d435be440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI">
+      <UniqueIdentifier>{3700a123-1dae-42c5-8fc9-160edde5c609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Audio">
+      <UniqueIdentifier>{1b27c6f9-773a-4847-90de-eba03dd10255}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Targets">
+      <UniqueIdentifier>{bc68f043-a38f-451d-8dfc-14085810d137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\XMLParsing">
+      <UniqueIdentifier>{8c386f87-1495-46d7-be1f-ec31878bdc8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\OpenAL">
+      <UniqueIdentifier>{cdfb8a49-64ea-4ae0-b4b7-a3a55e8a6c4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Targets">
+      <UniqueIdentifier>{f5f1cf10-77ae-4cd9-b2f0-299a22625d74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Managers">
+      <UniqueIdentifier>{77906167-f0b1-4174-b789-30d35262a8c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AI">
+      <UniqueIdentifier>{6bef00d8-838e-4ee5-962c-6aaa40af5651}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
+      <UniqueIdentifier>{515d0501-0059-46af-9458-144ae3206dbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Audio">
+      <UniqueIdentifier>{430ee653-ff83-46bc-9f8b-51812a57d3ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\XML Parsing">
+      <UniqueIdentifier>{f29c37f9-fa5f-4716-afcb-447add2b5199}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AimRecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AttachedParticleSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoFiringMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletRecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BurstFiringMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HitRegion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HitRegionParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IHitRegion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MWEPSApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleShotFiringMode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SurfaceType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetRecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ALBuffer.cpp">
+      <Filter>Source Files\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="ALController.cpp">
+      <Filter>Source Files\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="ALListener.cpp">
+      <Filter>Source Files\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="ALSound.cpp">
+      <Filter>Source Files\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="ALSoundAmbient.cpp">
+      <Filter>Source Files\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="ALSoundSpatial.cpp">
+      <Filter>Source Files\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="ALSource.cpp">
+      <Filter>Source Files\OpenAL</Filter>
+    </ClCompile>
+    <ClCompile Include="AARManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="AimManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="GunManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="OceanManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystemManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="PerformanceLogger.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="TPManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="WeatherManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ArriveBehavior.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultBehaviorState.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="FollowPathBehavior.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekBehavior.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="SteeringController.cpp">
+      <Filter>Source Files\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioListener.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ISound.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundAmbient.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundAttachedNode.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundNode.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="ITarget.cpp">
+      <Filter>Source Files\Targets</Filter>
+    </ClCompile>
+    <ClCompile Include="MarineSteeringTarget.cpp">
+      <Filter>Source Files\Targets</Filter>
+    </ClCompile>
+    <ClCompile Include="MarineTarget.cpp">
+      <Filter>Source Files\Targets</Filter>
+    </ClCompile>
+    <ClCompile Include="SteeringTarget.cpp">
+      <Filter>Source Files\Targets</Filter>
+    </ClCompile>
+    <ClCompile Include="WBIEDTarget.cpp">
+      <Filter>Source Files\Targets</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioParser.cpp">
+      <Filter>Source Files\XMLParsing</Filter>
+    </ClCompile>
+    <ClCompile Include="TargetParser.cpp">
+      <Filter>Source Files\XMLParsing</Filter>
+    </ClCompile>
+    <ClCompile Include="XMLParser.cpp">
+      <Filter>Source Files\XMLParsing</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AimRecord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AttachedParticleSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoFiringMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletRecord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BurstFiringMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HitRegion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HitRegionParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IFiringMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IHitRegion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MWEPSApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleShotFiringMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SurfaceType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetRecord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ALBuffer.h">
+      <Filter>Header Files\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="ALController.h">
+      <Filter>Header Files\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="ALListener.h">
+      <Filter>Header Files\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="ALSound.h">
+      <Filter>Header Files\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="ALSoundAmbient.h">
+      <Filter>Header Files\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="ALSoundSpatial.h">
+      <Filter>Header Files\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="ALSource.h">
+      <Filter>Header Files\OpenAL</Filter>
+    </ClInclude>
+    <ClInclude Include="ITarget.h">
+      <Filter>Header Files\Targets</Filter>
+    </ClInclude>
+    <ClInclude Include="MarineSteeringTarget.h">
+      <Filter>Header Files\Targets</Filter>
+    </ClInclude>
+    <ClInclude Include="MarineTarget.h">
+      <Filter>Header Files\Targets</Filter>
+    </ClInclude>
+    <ClInclude Include="StationaryTarget.h">
+      <Filter>Header Files\Targets</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringTarget.h">
+      <Filter>Header Files\Targets</Filter>
+    </ClInclude>
+    <ClInclude Include="WBIEDTarget.h">
+      <Filter>Header Files\Targets</Filter>
+    </ClInclude>
+    <ClInclude Include="AARManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="AimManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="GunManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="OceanManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystemManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="PerformanceLogger.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="TPManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="WeatherManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ArriveBehavior.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AttackBehaviorState.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultBehaviorState.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="FollowPathBehavior.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="IBehaviorState.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="ISteeringBehavior.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekBehavior.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringController.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="CharPointer.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtil.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Factory.h">
+      <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioListener.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ISound.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundAmbient.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundAttachedNode.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundManager.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundNode.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioParser.h">
+      <Filter>Header Files\XML Parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="TargetParser.h">
+      <Filter>Header Files\XML Parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="XMLParser.h">
+      <Filter>Header Files\XML Parsing</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

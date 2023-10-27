@@ -1,0 +1,62 @@
+<Target name = "TestTarget">
+  <ClassType>MarineTarget</ClassType>
+  <Filename>TestTarget.acf</Filename>
+  <HitPoints> 20 </HitPoints>
+  <MaxSpeed> 100 </MaxSpeed>
+  <HitPointThresholds> 15, 10, 5, 0 </HitPointThresholds>
+  <HitDecrement> 1 </HitDecrement>
+  <Effect name = "Flame">
+    <TargetState> 3 </TargetState>
+    <Scale>6.0, 6.0, 6.0</Scale>
+    <Offset> 0.0, 0.0, 0.0 </Offset>
+  </Effect>
+  <HitRegions>
+    <HitRegion name ="l1_group">
+      <ClassType>HitRegion</ClassType>
+      <HitPoints> 16 </HitPoints>
+      <AreaHitPointValue> 4 </AreaHitPointValue>
+      <HitPointThresholds> 12, 8, 3, 0 </HitPointThresholds>
+      <HitDecrement> 1 </HitDecrement>
+      <SurfaceType> Metal </SurfaceType>
+    </HitRegion>
+    <HitRegion name ="radarl3_group">
+      <ClassType>HitRegion</ClassType>
+      <HitPoints> 8 </HitPoints>
+      <AreaHitPointValue> 1 </AreaHitPointValue>
+      <HitPointThresholds> 6, 3, 1, 0 </HitPointThresholds>
+      <HitDecrement> 1 </HitDecrement>
+      <SurfaceType> Metal </SurfaceType>
+      <Effect name = "Flame">
+        <RegionState> 3 </RegionState>
+        <Scale>2.0, 2.0, 2.0</Scale>
+        <Offset> -0.524382, 21.291819, 20.357170</Offset>
+      </Effect>
+    </HitRegion>
+    <HitRegion name ="radarl4_group">
+      <ClassType>HitRegion</ClassType>
+      <HitPoints> 8 </HitPoints>
+      <AreaHitPointValue> 1 </AreaHitPointValue>
+      <HitPointThresholds> 6, 3, 1, 0 </HitPointThresholds>
+      <HitDecrement> 1 </HitDecrement>
+      <SurfaceType> Metal </SurfaceType>
+      <Effect name = "Flame">
+        <RegionState> 3 </RegionState>
+        <Scale> 2.0, 2.0, 2.0</Scale>
+        <Offset> 0.316686, -17.395210, 18.085017</Offset>
+      </Effect>
+    </HitRegion>
+    <HitRegion name ="radarl5_group">
+      <ClassType>HitRegion</ClassType>
+      <HitPoints>8</HitPoints>
+      <AreaHitPointValue> 1 </AreaHitPointValue>
+      <SurfaceType> Metal </SurfaceType>
+      <HitPointThresholds> 6, 3, 1, 0 </HitPointThresholds>
+      <HitDecrement> 1 </HitDecrement>
+      <Effect name = "Flame">
+        <RegionState> 3 </RegionState>
+        <Scale>2.0, 2.0, 2.0</Scale>
+        <Offset> 0.316686, -20.749267, 15.613732</Offset>
+      </Effect>
+    </HitRegion>  
+  </HitRegions>
+</Target>

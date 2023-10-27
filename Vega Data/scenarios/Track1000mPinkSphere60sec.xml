@@ -1,0 +1,64 @@
+<Scenario name = "Track3mRadiusPinkSphere">
+  <Description>ROSAM Tracking scenario 60 seconds tracking of 3m radius sphere(Pink) at 1000m from observer.</Description>
+  <Environment>Track3mRadiusPinkSphere.acf</Environment>
+  <EffectTypes>
+    <Effect name = "Splash">
+      <Filename>SplashEffect.acf</Filename>
+    </Effect>
+    <Effect name = "Flame">
+      <Filename>FlameEffect.acf</Filename>
+    </Effect>
+    <Effect name ="Smoke">
+      <Filename>SmokeEffect.acf</Filename>
+    </Effect>
+  </EffectTypes>
+  <SoundFiles>
+    <SoundAmbient name = "Gunshot">
+      <Filename>gunshot.wav</Filename>
+      <Looping>0</Looping>
+      <ReleaseOnCompletion>0</ReleaseOnCompletion>
+    </SoundAmbient>
+    <SoundNode name = "Splash">
+      <Filename>exp35.wav</Filename>
+      <Looping>0</Looping>
+      <ReleaseOnCompletion>1</ReleaseOnCompletion>
+    </SoundNode>
+    <SoundNode name = "Plink">
+      <Filename>splash.wav</Filename>
+      <Looping>0</Looping>
+      <ReleaseOnCompletion>1</ReleaseOnCompletion>
+    </SoundNode>
+  </SoundFiles>
+  <Crosshair>
+    <Filename>redaim.png</Filename>
+    <Scale>0.03125, 0.05</Scale>
+  </Crosshair>
+  <SurfaceTypes>
+    <SurfaceType name ="Metal">
+      <HitSound> Plink </HitSound>
+      <HitEffect> Smoke </HitEffect>
+      <HitEffectScale> 1.0, 1.0, 1.0 </HitEffectScale>
+    </SurfaceType>
+  </SurfaceTypes>
+  <ScenarioEndTime>
+    <EndTime>60.0</EndTime>
+  </ScenarioEndTime>
+  <MouseCursorEnabled> 0 </MouseCursorEnabled>
+  <OceanEnabled> 0 </OceanEnabled>
+  <TargetTypes>
+		<Target name = "Sphere">
+			<Filename>Sphere.xml</Filename>
+		</Target>		
+	</TargetTypes>
+	<TargetInstances>
+		<Target name = "Target1">
+			<Type>Sphere</Type>
+			<Position> 0, 1000, 0 </Position>
+			<Rotation> 0, 0, 0 </Rotation>
+      <Scale> 1, 1, 1 </Scale>
+			<StartTime> 0 </StartTime>
+      <StartPathIndex>0</StartPathIndex>
+      <StartWayPointIndex>0</StartWayPointIndex>
+		</Target>
+	</TargetInstances>
+</Scenario>

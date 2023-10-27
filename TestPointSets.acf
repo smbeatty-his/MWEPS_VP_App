@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AcfRoot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+urn://www.multigen-paradigm.com mpi.xsd"
+xmlns="urn://www.multigen-paradigm.com"
+    xmlns:vp="urn://www.multigen-paradigm.com/vp"
+    xmlns:vpPath="urn://www.multigen-paradigm.com/vpPath"
+>
+
+<vp:AcfInfo name="TestPointSets.acf">
+    <vp:initializeModule>vpPath</vp:initializeModule>
+    <vp:autoEnable>true</vp:autoEnable>
+    <vp:appToRun></vp:appToRun>
+    <vp:appToRunArgs>$ACF</vp:appToRunArgs>
+    <vp:comment></vp:comment>
+    <vp:createdByVersion>5.0.0</vp:createdByVersion>
+</vp:AcfInfo>
+
+<vpPath:PathWayPointSet_WayPoint name="Set1WayPoint1">
+    <vpPath:setPosition>
+        <vpPath:x>-40</vpPath:x>
+        <vpPath:y>375</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set1WayPoint2">
+    <vpPath:setPosition>
+        <vpPath:x>-30</vpPath:x>
+        <vpPath:y>250</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set1WayPoint3">
+    <vpPath:setPosition>
+        <vpPath:x>-20</vpPath:x>
+        <vpPath:y>125</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set1WayPoint4">
+    <vpPath:setPosition>
+        <vpPath:x>-10</vpPath:x>
+        <vpPath:y>0</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set2WayPoint1">
+    <vpPath:setPosition>
+        <vpPath:x>100</vpPath:x>
+        <vpPath:y>200</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set2WayPoint2">
+    <vpPath:setPosition>
+        <vpPath:x>75</vpPath:x>
+        <vpPath:y>150</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set2WayPoint3">
+    <vpPath:setPosition>
+        <vpPath:x>25</vpPath:x>
+        <vpPath:y>100</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set2WayPoint4">
+    <vpPath:setPosition>
+        <vpPath:x>0</vpPath:x>
+        <vpPath:y>50</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set3WayPoint1">
+    <vpPath:setPosition>
+        <vpPath:x>400</vpPath:x>
+        <vpPath:y>400</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set3WayPoint2">
+    <vpPath:setPosition>
+        <vpPath:x>200</vpPath:x>
+        <vpPath:y>350</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set3WayPoint3">
+    <vpPath:setPosition>
+        <vpPath:x>300</vpPath:x>
+        <vpPath:y>250</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set3WayPoint4">
+    <vpPath:setPosition>
+        <vpPath:x>400</vpPath:x>
+        <vpPath:y>200</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set3WayPoint5">
+    <vpPath:setPosition>
+        <vpPath:x>400</vpPath:x>
+        <vpPath:y>150</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet_WayPoint name="Set3WayPoint6">
+    <vpPath:setPosition>
+        <vpPath:x>500</vpPath:x>
+        <vpPath:y>300</vpPath:y>
+        <vpPath:z>0</vpPath:z>
+    </vpPath:setPosition>
+    <vpPath:setOrientation>
+        <vpPath:h>0</vpPath:h>
+        <vpPath:p>0</vpPath:p>
+        <vpPath:r>0</vpPath:r>
+    </vpPath:setOrientation>
+</vpPath:PathWayPointSet_WayPoint>
+
+<vpPath:PathWayPointSet name="PathWayPointSet1">
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set1WayPoint1"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set1WayPoint2"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set1WayPoint3"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set1WayPoint4"></vpPath:addWayPoint>
+    <vpPath:setOrientationBodyAxes>false</vpPath:setOrientationBodyAxes>
+</vpPath:PathWayPointSet>
+
+<vpPath:PathWayPointSet name="PathWayPointSet2">
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set2WayPoint1"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set2WayPoint2"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set2WayPoint3"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set2WayPoint4"></vpPath:addWayPoint>
+    <vpPath:setOrientationBodyAxes>false</vpPath:setOrientationBodyAxes>
+</vpPath:PathWayPointSet>
+
+<vpPath:PathWayPointSet name="PathWayPointSet3">
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set3WayPoint1"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set3WayPoint2"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set3WayPoint3"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set3WayPoint4"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set3WayPoint5"></vpPath:addWayPoint>
+    <vpPath:addWayPoint refTo="PathWayPointSet_WayPoint::Set3WayPoint6"></vpPath:addWayPoint>
+    <vpPath:setOrientationBodyAxes>false</vpPath:setOrientationBodyAxes>
+</vpPath:PathWayPointSet>
+
+</AcfRoot>
