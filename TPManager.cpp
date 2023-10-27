@@ -280,7 +280,7 @@ const int TPManager::ProcessIncomingEvents(const double dElapsedTime)
 				case IOS_EXIT_IGAPP:
 				{
 					m_pkApp->EndScenario();
-					m_pkApp->breakFrameLoop(); // This will purportedly end the run loop
+					m_pkApp->breakFrameLoop(); // This will purportedly end the run loop - still get Error Box popup
 
 					m_pkWMShare->Ev[i].bEvent = false;
 					break;
