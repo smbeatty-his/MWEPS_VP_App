@@ -71,23 +71,19 @@ TPManager::TPManager(const char* sShareNameWeaponManager) : m_hWMShare(NULL), m_
 
 	ASSERT(m_pkIGShare)
 
-#ifdef NO_SHARE_TEST
-
-	//SMB: 19Oct2023 - handle initialization when we get the IOS_INITIALIZE_SCENARIO command
+	//SMB: 19 Oct 2023 - handle initialization when we get the IOS_INITIALIZE_SCENARIO command
 		// WAS 
 	//m_pkWMShare->Ev[0].iEventType = IOS_INITIALIZE_SCENARIO;
 	//m_pkWMShare->Ev[0].bEvent = true;
 	//	strcpy(m_pkWMShare->Ev[0].sData, "Track3mRadiusBlueSphere.acf");
-	//	strcpy(&(m_pkWMShare->Ev[0].sData[256]), "Track1000mBlueSphere30sec.xml");	//printf("m_pkWMShare: ACF Filename: %s     Scenario Filename: %s \r\n",
+	//	strcpy(&(m_pkWMShare->Ev[0].sData[256]), "Track1000mBlueSphere30sec.xml");	
+	//  printf("m_pkWMShare: ACF Filename: %s     Scenario Filename: %s \r\n",
 	//m_pkWMShare->Ev[0].sData, &(m_pkWMShare->Ev[0].sData[512]));
 
 	//SMB: 19 Oct 2023 - Need to push this event to get WeaponManager to send IOS_INITIALIZE_SCENARIO command
 	PushEvent(IG_EVENT_READY);
 
 	// End of handle initialization
-
-#endif
-
 
 }
 
@@ -593,8 +589,6 @@ const bool TPManager::ProcessInitialization(MWEPSApp* pkApp)
 }
 
 
-#if (NO_SHARE_TEST)
-
 void TPManager::TestIncomingEvent(WMEvent& kEvent)
 {
 	int iIndex = 0;
@@ -618,5 +612,3 @@ void TPManager::TestIncomingEvent(WMEvent& kEvent)
 		printf("Event fired, no slot found for it\n");
 	}
 }
-
-#endif

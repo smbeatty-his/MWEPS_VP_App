@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		printf("argv %d: %s\n", i, argv[i]);
 	}
 
-	Sleep(13000); // SMB: wait 13 seconds to attach debugger
+//	Sleep(13000); // SMB: wait 13 seconds to attach debugger
 
     // initialize vega prime
     vp::initialize(argc, argv);

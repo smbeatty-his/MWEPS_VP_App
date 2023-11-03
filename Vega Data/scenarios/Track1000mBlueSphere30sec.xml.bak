@@ -1,5 +1,5 @@
 <Scenario name = "Track3mRadiusBlueSphere">
-  <Description>ROSAM Tracking scenario 30 seconds tracking of 3m radius sphere (Blue) at 1000m from observer.</Description>
+  <Description>ROSAM Tracking scenario 30 seconds tracking of 3m radius sphere(Blue) at 1000m from observer.</Description>
   <Environment>Track3mRadiusBlueSphere.acf</Environment>
   <EffectTypes>
     <Effect name = "Splash">

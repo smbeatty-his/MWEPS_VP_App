@@ -33,11 +33,9 @@ AimManager::~AimManager(void)
 	m_pkMouse->unref();
 }
 
+// SMB: AimManager::Update Adds an IOS_WM_AIM event with the position of the mouse to the m_PkWMShare event queue
 void AimManager::Update(double dDeltaTime)
 {
-	return; // SMB 14 Aug 2023: Stop updating AIM and CROSSHAIR with the mouse - want to use spot tracker
-
-#ifdef NO_SHARE_TEST
 	m_dAimDelayedTime += dDeltaTime;
 
 	float fMX = m_pkMouse->getSourceFloat(vpInputMouse::SOURCE_FLOAT_POSITION_X)->getValue();
@@ -68,7 +66,6 @@ void AimManager::Update(double dDeltaTime)
 
 		m_dAimDelayedTime = 0.0;
 	}
-#endif
 }
 
 void AimManager::Start(void)
@@ -127,9 +124,8 @@ void AimManager::PushAim(const WMEvent& kEvent, const double dReceiveTime)
 
 	vpChannel* pkChannel = *vpChannel::begin();
 
-	//SMB: Don't know if this is significant or not ... we're using Laser Spot, not mouse
-	GunManager::GetInstance()->GetHeadingPitchFromMouseCoordinates(&dHeading, &dPitch, fAimPixX, fAimPixY,
-																				&vdAimDirection);
+	//SMB: Removed ... we're using Laser Spot, not mouse
+	// GunManager::GetInstance()->GetHeadingPitchFromMouseCoordinates(&dHeading, &dPitch, fAimPixX, fAimPixY, &vdAimDirection);
 
 	float fNearPlane, fFarPlane;
 

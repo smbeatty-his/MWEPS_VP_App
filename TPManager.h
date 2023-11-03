@@ -1,8 +1,6 @@
 #ifndef TRACKER_PIPE_MANAGER_MODULE_H
 #define TRACKER_PIPE_MANAGER_MODULE_H
 
-#define NO_SHARE_TEST 1
-
 #include <DebugUtil.h>
 
 typedef void* HANDLE;
@@ -194,10 +192,7 @@ public:
 	const int ProcessIncomingEvents(const double dElapsedTime);
 	const bool ProcessInitialization(MWEPSApp* pkApp);
 
-	// SMB: 13 Oct 2023  - Need TestIncomingEvent, even it NO_SHARE_TEST isn't defined
-#ifdef NO_SHARE_TEST
 	void TestIncomingEvent(WMEvent& kEvent);
-#endif
 
 private:
 	TPManager(const char* sShareNameWeaponManager);

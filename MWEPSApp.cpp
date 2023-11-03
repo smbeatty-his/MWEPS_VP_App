@@ -115,7 +115,6 @@ void MWEPSApp::onKeyInput(vrWindow::Key kKey, int iMod)
 
 	switch(kKey)
 	{
-#ifdef NO_SHARE_TEST
 		case vrWindow::KEY_R:
 		case vrWindow::KEY_r:
 		{
@@ -171,7 +170,6 @@ void MWEPSApp::onKeyInput(vrWindow::Key kKey, int iMod)
 			TPManager::GetInstance()->TestIncomingEvent(kEvent);
 			break;
 		}
-#endif
 		default:
 		{
 			vpApp::onKeyInput(kKey, iMod);
@@ -265,11 +263,11 @@ int MWEPSApp::endFrame() const
 
 				SoundManager::GetInstance()->Update();
 
-				AimManager::GetInstance()->Update(dDeltaTime);  //SMB: this does nothing - used to move Aim to mouse position
-			}
+				//SMB: 03 Nov 2023 - Don't call AimManager::Update. We move the Crosshair to follow the laser, not the mouse
+				AimManager::GetInstance()->Update(dDeltaTime); // SMB: this moves the Aim Crosshair to the mouse position
 
-			//else After Action Review will handle updates
-			else
+			} 
+			else  //else After Action Review will handle updates
 			{
 				AARManager::GetInstance()->Update();
 			}
@@ -281,13 +279,11 @@ int MWEPSApp::endFrame() const
 				//SMB 15 Aug 2023: Notify WeaponManager that Scenario has ended
 				TPManager::GetInstance()->PushEvent(IG_EVENT_READY);
 
-#ifdef NO_SHARE_TEST
 				WMEvent kEvent;
 				strcpy(kEvent.sData, "test.log");
 				kEvent.bEvent = true;
 				kEvent.iEventType = IOS_WRITE_BINARY_DATA;
 				TPManager::GetInstance()->TestIncomingEvent(kEvent);
-#endif
 			}
 
 			break;
@@ -358,14 +354,16 @@ void MWEPSApp::EndScenario(void)
 {
 	m_kState = MWEPSApp::STOPPED;
 	OceanManager::GetInstance()->DisableOcean();
-#ifdef NO_SHARE_TEST
 	
+	//SMB 03 Nov 2023: Also notify WeaponManager that Scenario has ended
+	TPManager::GetInstance()->PushEvent(IG_EVENT_READY);
+
 	WMEvent kEvent;
 	strcpy(kEvent.sData, "test.log");
-
+	kEvent.bEvent = true;	//SMB: 03 Nov 2023 - added this line to match ending via scenario times out
+	kEvent.iEventType = IOS_WRITE_BINARY_DATA;  //SMB: 03 Nov 2023 - added this line to match ending via scenario times out
 	TPManager::GetInstance()->TestIncomingEvent(kEvent);
 
-#endif
 }
 
 void MWEPSApp::SetEnableOcean(const bool bEnabled)
