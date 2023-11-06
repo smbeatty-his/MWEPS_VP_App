@@ -6,6 +6,7 @@
 #include <vuMatrix.h>
 #include <vuVec2.h>
 #include <vpIsectorLOS.h>
+#include "vpOverlay2DImage.h"
 
 class AimRecord;
 class vpInputMouse;
@@ -49,7 +50,7 @@ public:
 
 	inline void SetMouse(vpInputMouse* pkMouse) { m_pkMouse = pkMouse; }
 	// SMB was: const inline vpOverlay2DImage* GetCrosshair(void) { return m_pkCrosshair; }
-	inline vpOverlay2DImage* GetCrosshair(void) { return m_pkCrosshair; }
+	vpOverlay2DImage* GetCrosshair(void) { return m_pkAimCrosshair; } 
 	void SetCrosshair();
 
 	vuList<AimRecord*>& GetAimRecords(void) { return m_lpkAimRecords; }

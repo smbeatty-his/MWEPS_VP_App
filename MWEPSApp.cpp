@@ -172,6 +172,17 @@ void MWEPSApp::onKeyInput(vrWindow::Key kKey, int iMod)
 			TPManager::GetInstance()->TestIncomingEvent(kEvent);
 			break;
 		}
+
+		case vrWindow::KEY_C:
+		case vrWindow::KEY_c:
+		{
+			WMEvent kEvent;
+			kEvent.bEvent = true;
+			kEvent.iEventType = IOS_WM_SHOW_CROSSHAIR;
+			TPManager::GetInstance()->TestIncomingEvent(kEvent);
+			break;
+		}
+
 		default:
 		{
 			vpApp::onKeyInput(kKey, iMod);

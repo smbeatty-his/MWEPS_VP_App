@@ -109,15 +109,14 @@ void AimManager::PushAim(const WMEvent& kEvent, const double dReceiveTime)
 */
 	GetScreenCoordinates(&fAimScreenX, &fAimScreenY);  //SMB: Converts to Screen Coordinates -1.0 to 1.0
 
-
 	// SMB 14 Aug 2023: Move our Crosshair accordingly
 	// SMB 14 Aug 2023: Convert to 0.0 to 1.0 for Crosshair origin and add Crosshair adjustments
 //	m_pkAimCrosshair->setOrigin( ((fAimScreenX + 1.0f) / 2.0f) - m_vfCrosshairAdjustment[0],
 //		((fAimScreenY + 1.0f) / 2.0f) - m_vfCrosshairAdjustment[1]); // 0.0 to 1.0
-	m_pkAimCrosshair->setEnable(TRUE); //It's turned off by default in the ACF file, so we can lock onto the target
+//	m_pkAimCrosshair->setEnable(TRUE); // It's turned off by default in the ACF file. 
+									   // It's turned on with IOS_WM_SHOW_CROSSHAIR event
 	m_pkAimCrosshair->setOrigin(((fAimScreenX + 1.0f) / 2.0f) - 0.0018 ,
 		((fAimScreenY + 1.0f) / 2.0f) + 0.038); // 0.0 to 1.0
-
 
 	double dHeading, dPitch;
 	vuVec3<double> vdAimDirection;

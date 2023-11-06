@@ -467,17 +467,24 @@ const int TPManager::ProcessIncomingEvents(const double dElapsedTime)
 					break;
 				}
 
-				//SMB: 26 Oct 2023 - Handle these events also, which are sent from WeaponManager
+				//SMB: 26 Oct 2023 - Handle IOS_WM_SHOW_CROSSHAIR and IOS_WM_SHOW_CURSOR events also, 
+				//     which are sent from WeaponManager
 				case IOS_WM_SHOW_CROSSHAIR:
-				{
-					// pointer to incomplete class type is not allowed
-					//AimManager::GetInstance()->GetCrosshair()->setEnable(true);
+				{	// Toggle the Crosshair display
+					if (AimManager::GetInstance()->GetCrosshair()->getEnable() == false) {
+						AimManager::GetInstance()->GetCrosshair()->setEnable(true);
+						DEBUG_PRINT("Toggle Crosshair: Enabled\n");
+					} else {
+						AimManager::GetInstance()->GetCrosshair()->setEnable(false);
+						DEBUG_PRINT("Toggle Crosshair: Disabled\n");
+					}
 					m_pkWMShare->Ev[i].bEvent = false;
 					break;
 				}
 
 				case IOS_WM_SHOW_CURSOR:
 				{
+					DEBUG_PRINT("SMB: IOS_WM_SHOW_CURSOR received\n");
 					m_pkWMShare->Ev[i].bEvent = false;
 					break;
 				}
