@@ -1,6 +1,6 @@
 <Scenario name = "Track3mRadiusBlueSphere">
-  <Description>ROSAM Tracking scenario 60 seconds tracking of 3m radius sphere(Blue) at 1000m from observer.</Description>
-  <Environment>Track3mRadiusBlueSphere.acf</Environment>
+  <Description>ROSAM Tracking scenario 30 seconds tracking of 3m radius sphere (Blue) at 1000m from observer.</Description>
+  <Environment>Track3mRadiusBlueSphere - HIS.acf</Environment>
   <EffectTypes>
     <Effect name = "Splash">
       <Filename>SplashEffect.acf</Filename>
@@ -37,7 +37,7 @@
     </SurfaceType>
   </SurfaceTypes>
   <ScenarioEndTime>
-    <EndTime>60.0</EndTime>
+    <EndTime>30.0</EndTime>
   </ScenarioEndTime>
   <MouseCursorEnabled> 0 </MouseCursorEnabled>
   <OceanEnabled> 0 </OceanEnabled>

@@ -38,7 +38,9 @@ private:
 	void ParseSurfaceType(XMLNode* pkNode);
 	void ParseWayPointSets(XMLNode* pkNode);
 	void ParseTargetWayPointSets(XMLNode* pkNode, ITarget* pkTarget);
-	void ParseCrosshair(XMLNode* pkNode);
+	// SMB 06Nov2023 - Removed Crosshair from .xml file - could never get it working after updgrade to VP22
+	//				   This functionality is now described in the.acf file
+	//void ParseCrosshair(XMLNode* pkNode);
 	void ParseSteeringBehaviors(XMLNode* pkNode, ITarget* pkTarget);
 	void ParseEndTime(XMLNode* pkNode);
 	void ParseMouseCursorEnabled(XMLNode* pkNode);

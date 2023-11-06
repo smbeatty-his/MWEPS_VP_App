@@ -81,7 +81,7 @@ xmlns="urn://www.presagis.com"
      <vp:left>1920</vp:left>
       Office widescreen monitor <vp:left>830</vp:left>
   -->
-      <vp:left>830</vp:left>
+      <vp:left>1920</vp:left>
       <vp:bottom>0</vp:bottom>
     </vp:setOrigin>
     <vp:setSize>

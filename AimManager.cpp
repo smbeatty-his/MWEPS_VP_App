@@ -189,20 +189,20 @@ void AimManager::GetScreenCoordinates(float *fX, float *fY)
 }
 
 // Sets the information we parsed into our new pkCrosshair into the member variable
-void AimManager::SetCrosshair(vpOverlay2DImage* pkCrosshair)
+void AimManager::SetCrosshair()
 {
-	ASSERT(! m_pkCrosshair)
-	//SMB 10 Aug 2023: m_pkCrosshair WILL NOT BE DISPLAYED ... don't know why
-	m_pkCrosshair = pkCrosshair;
-	//SMB 10 Aug 2023: m_pkAimCrosshair WILL be displayed!
+	// SMB: This Crosshair is defined in the .acf file
 	m_pkAimCrosshair = vpOverlay2DImage::find("AimCrosshair");
+	
 	float fScaleX, fScaleY;
-
-	m_pkCrosshair->getScale(&fScaleX, &fScaleY);
-
+	m_pkAimCrosshair->getScale(&fScaleX, &fScaleY);
 	m_vfCrosshairAdjustment.set(fScaleX / 2.0f, fScaleY / 2.0f);
 }
 
+// SMB 06Nov2023 - We don't call this anymore. Crosshair responds to Laser spot
+//				   That's handled with PushAim and event IOS_WM_AIM
+//				   m_pkCrosshair is not longer used
+/*
 void AimManager::UpdateCrosshairPosition(const WMEvent &kEvent)
 {
 	ASSERT(m_pkCrosshair)
@@ -210,12 +210,8 @@ void AimManager::UpdateCrosshairPosition(const WMEvent &kEvent)
 	//SMB 10 Aug 2023: m_pkCrosshair WILL NOT BE DISPLAYED ... don't know why
 		m_pkCrosshair->setOrigin(kEvent.fData[0] - m_vfCrosshairAdjustment[0],
 								kEvent.fData[1] - m_vfCrosshairAdjustment[1]);
-	//SMB 10 Aug 2023: mpkAimCrosshair WILL be displayed!
-/* Moved to PushAim()
-	m_pkAimCrosshair->setOrigin(kEvent.fData[0] - m_vfCrosshairAdjustment[0],
-		kEvent.fData[1] - m_vfCrosshairAdjustment[1]); // 0.0 to 1.0
-*/
 }
+*/
 
 void AimManager::ClearAimRecords(void)
 {

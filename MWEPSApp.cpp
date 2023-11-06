@@ -88,6 +88,8 @@ int MWEPSApp::configure()
 	ScenarioParser kParser = ScenarioParser(this);
 	kParser.ParseFile(GetScenarioName());
 
+	AimManager::GetInstance()->SetCrosshair(); // Inits m_pkAimCrosshair, sets Scale Adjustment
+
 	GunManager::GetInstance()->SetFireType(GunManager::SINGLE_SHOT);
 	GunManager::GetInstance()->Configure();
 	
@@ -264,7 +266,7 @@ int MWEPSApp::endFrame() const
 				SoundManager::GetInstance()->Update();
 
 				//SMB: 03 Nov 2023 - Don't call AimManager::Update. We move the Crosshair to follow the laser, not the mouse
-				AimManager::GetInstance()->Update(dDeltaTime); // SMB: this moves the Aim Crosshair to the mouse position
+				//AimManager::GetInstance()->Update(dDeltaTime); // SMB: this moves the Aim Crosshair to the mouse position
 
 			} 
 			else  //else After Action Review will handle updates

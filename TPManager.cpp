@@ -450,13 +450,16 @@ const int TPManager::ProcessIncomingEvents(const double dElapsedTime)
 					m_pkWMShare->Ev[i].bEvent = false;
 					break;
 				}
-
+				// SMB 06Nov2023 - We don't receive this event now that Crosshair responds to Laser spot
+				//				   That's handled with PushAim and event IOS_WM_AIM
+				/*
 				case IOS_WM_CROSSHAIR:
 				{
 					AimManager::GetInstance()->UpdateCrosshairPosition(m_pkWMShare->Ev[i]);
 					m_pkWMShare->Ev[i].bEvent = false;
 					break;
 				}
+				*/
 
 				case IOS_WM_LASE:
 				{

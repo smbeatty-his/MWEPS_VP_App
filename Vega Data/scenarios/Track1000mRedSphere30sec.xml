@@ -29,10 +29,6 @@
       <ReleaseOnCompletion>1</ReleaseOnCompletion>
     </SoundNode>
   </SoundFiles>
-  <Crosshair>
-    <Filename>redaim.png</Filename>
-    <Scale>0.03125, 0.05</Scale>
-  </Crosshair>
   <SurfaceTypes>
     <SurfaceType name ="Metal">
       <HitSound> Plink </HitSound>

@@ -5,11 +5,10 @@ xmlns="urn://www.presagis.com"
     xmlns:vp="urn://www.presagis.com/vp"
     xmlns:vpEnv="urn://www.presagis.com/vpEnv"
     xmlns:vpMotion="urn://www.presagis.com/vpMotion"
-    xmlns:vpOverlay="urn://www.presagis.com/vpOverlay"
     xmlns:vpMarine="urn://www.presagis.com/vpMarine"
 >
 
-<vp:AcfInfo name="Track3mRadiusBlackSphere.acf">
+<vp:AcfInfo name="Track3mRadiusGreySphere.acf">
     <vp:initializeModule>vpEnv</vp:initializeModule>
     <vp:initializeModule>vpMotion</vp:initializeModule>
     <vp:initializeModule>vpMarine</vp:initializeModule>
@@ -34,10 +33,9 @@ xmlns="urn://www.presagis.com"
 </vp:Kernel>
 
 <vp:SearchPath name="mySearchPath">
-    <vp:append>$(PRESAGIS_VEGA_PRIME_22_0)/config/vegaprime/vpenv</vp:append>
-    <vp:append>C:/Presagis/Suite22/Vega_Prime_22_0/config/VegaPrime/vpenv</vp:append>
-    <vp:append>C:/Presagis/Suite22/Vega_Prime_22_0/projects/MWEPS/Vega Data/models</vp:append>
-    <vp:append>C:/Presagis/Suite22/Vega_Prime_22_0/projects/MWEPS/data/models</vp:append>
+    <vp:append>C:/Presagis/Vega_Prime_5/projects/MWEPS/data/models</vp:append>
+    <vp:append>C:/Presagis/Vega_Prime_5/config/VegaPrime/vpenv</vp:append>
+    <vp:append>C:/MWEPSII/Vega Data/models</vp:append>
 </vp:SearchPath>
 
 <vp:Pipeline name="myPipeline">
@@ -77,12 +75,8 @@ xmlns="urn://www.presagis.com"
     <vp:addChannel refTo="Channel::myChannel"></vp:addChannel>
     <vp:setLabel>Vega Prime Window</vp:setLabel>
     <vp:setOrigin>
- <!-- SMB: Was 1920 to put on second monitor.
-     <vp:left>1920</vp:left>
-      Office widescreen monitor <vp:left>830</vp:left>
-  -->
-      <vp:left>1920</vp:left>
-      <vp:bottom>0</vp:bottom>
+        <vp:left>1920</vp:left>
+        <vp:bottom>0</vp:bottom>
     </vp:setOrigin>
     <vp:setSize>
         <vp:width>1920</vp:width>
@@ -210,10 +204,7 @@ xmlns="urn://www.presagis.com"
     <vp:setLatencyCriticalEnable>false</vp:setLatencyCriticalEnable>
 </vp:Observer>
 
-<vp:Scene name="myScene">
-    <vp:addChild refTo="Object::SphereObject"></vp:addChild>
-</vp:Scene>
-
+<vp:Scene name="myScene"/>
 <vp:Object name="SphereObject">
     <vp:addChild refTo="Node::SphereMarineFxBowWaveAngled"></vp:addChild>
     <vp:addChild refTo="Node::SphereMarineFxSternWake"></vp:addChild>
@@ -238,7 +229,7 @@ xmlns="urn://www.presagis.com"
         <vp:z>1</vp:z>
     </vp:setScale>
     <vp:setStaticEnable>false</vp:setStaticEnable>
-    <vp:setFileName>3mRadiusSphereBlack.flt</vp:setFileName>
+    <vp:setFileName>3mRadiusSphereGrey.flt</vp:setFileName>
     <vp:addAttribute refTo="Geometry_Attribute::SphereMarineShip"></vp:addAttribute>
     <vp:setAutoPage>AUTO_PAGE_SYNCHRONOUS</vp:setAutoPage>
     <vp:setManualLODChild>-1</vp:setManualLODChild>
@@ -486,7 +477,7 @@ xmlns="urn://www.presagis.com"
         <vpEnv:top>500.000000</vpEnv:top>
     </vpEnv:setTransitionRange>
     <vpEnv:setScudEnable>false</vpEnv:setScudEnable>
-    <vpEnv:setTextureFile>cloud_scattered.png</vpEnv:setTextureFile>
+    <vpEnv:setTextureFile>cloud_scattered.inta</vpEnv:setTextureFile>
     <vpEnv:setTextureTiling>
         <vpEnv:x>3.000000</vpEnv:x>
         <vpEnv:y>3.000000</vpEnv:y>
@@ -567,24 +558,6 @@ xmlns="urn://www.presagis.com"
     <vpMotion:setRatePitch>0</vpMotion:setRatePitch>
 </vpMotion:MotionUFO>
 
-<vpOverlay:Overlay2DImage name="AimCrosshair">
-    <vpOverlay:setEnable>false</vpOverlay:setEnable>
-    <vpOverlay:addImageFile>RedAim.png</vpOverlay:addImageFile>
-    <vpOverlay:setDisplayTime>50000</vpOverlay:setDisplayTime>
-    <vpOverlay:setOrigin>
-        <vpOverlay:x>0.500000</vpOverlay:x>
-        <vpOverlay:y>0.500000</vpOverlay:y>
-    </vpOverlay:setOrigin>
-    <vpOverlay:setScale>
-        <vpOverlay:x>0.030000</vpOverlay:x>
-        <vpOverlay:y>0.050000</vpOverlay:y>
-    </vpOverlay:setScale>
-    <vpOverlay:setFadeInDuration>0</vpOverlay:setFadeInDuration>
-    <vpOverlay:setFadeOutDuration>0</vpOverlay:setFadeOutDuration>
-    <vpOverlay:setBlinkingEnable>false</vpOverlay:setBlinkingEnable>
-    <vpOverlay:setRenderingPriority>100</vpOverlay:setRenderingPriority>
-</vpOverlay:Overlay2DImage>
-  
 <vpMarine:MarineWaveGeneratorFFT name="myMarineWaveGeneratorFFT">
     <vpMarine:setMeshResolution>
         <vpMarine:ResolutionX>64</vpMarine:ResolutionX>

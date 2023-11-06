@@ -50,13 +50,14 @@ public:
 	inline void SetMouse(vpInputMouse* pkMouse) { m_pkMouse = pkMouse; }
 	// SMB was: const inline vpOverlay2DImage* GetCrosshair(void) { return m_pkCrosshair; }
 	inline vpOverlay2DImage* GetCrosshair(void) { return m_pkCrosshair; }
-	void SetCrosshair(vpOverlay2DImage* pkCrosshair);
+	void SetCrosshair();
 
 	vuList<AimRecord*>& GetAimRecords(void) { return m_lpkAimRecords; }
 	inline void AddAimRecord(AimRecord* pkRecord) { m_lpkAimRecords.push_back(pkRecord); }
 	void ClearAimRecords(void);
 	void PushAim(const WMEvent& kEvent, const double dReceiveTime);
-	void UpdateCrosshairPosition(const WMEvent& kEvent);
+	// SMB 06Nov2023 - We don't call this anymore. Crosshair responds to Laser spot, handled with PushAim
+	//void UpdateCrosshairPosition(const WMEvent& kEvent);
 	void Update(double dDeltaTime);
 	void Reset(void);
 	void Start(void);

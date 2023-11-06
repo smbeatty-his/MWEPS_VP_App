@@ -61,12 +61,14 @@ void ScenarioParser::ParseFile(const char* sFilename)
 
 	ParseSoundFiles(pkNode);
 
-	pkNode = pkNode->NextSibling();
+	// SMB 06Nov2023 - Removed Crosshair from .xml file - could never get it working after updgrade to VP22
+	//					This functionality is now described in the.acf file
+/*	pkNode = pkNode->NextSibling();
 	ASSERT(pkNode)
 	ASSERT(! strcmp(pkNode->Value(), "Crosshair"))
 
 	ParseCrosshair(pkNode);
-
+*/
 	pkNode = pkNode->NextSibling();
 	ASSERT(pkNode)
 	ASSERT(! strcmp(pkNode->Value(), "SurfaceTypes"))
@@ -192,6 +194,9 @@ void ScenarioParser::ParseWayPointSets(XMLNode *pkNode)
     pkParser->finishParse();
 }
 
+// SMB 06Nov2023 - Removed Crosshair from .xml file - could never get it working after updgrade to VP22
+//					This functionality is now described in the.acf file
+/*
 void ScenarioParser::ParseCrosshair(XMLNode* pkNode)
 {
 	XMLNode* pkChild = pkNode->FirstChild();
@@ -214,11 +219,12 @@ void ScenarioParser::ParseCrosshair(XMLNode* pkNode)
 
 	pkCrosshair->setScale(vfScale[0], vfScale[1]); //SMB check 0.03 and 0.05
 
-//	pkCrosshair->configure(); // Goes to VpOverlay configure - no source for this. No longer called? Removing didn't change behavior
+	pkCrosshair->configure(); // Goes to VpOverlay configure - no source for this. No longer called? Removing didn't change behavior
 
 	pkCrosshair->setEnable(true); //SMB check
 
-	AimManager::GetInstance()->SetCrosshair(pkCrosshair); // Points m_pkCrosshair to this object, sets Scale Adjustment
+	// SMB WAS: AimManager::GetInstance()->SetCrosshair(pkCrosshair); // Points m_pkCrosshair to this object, sets Scale Adjustment
+	AimManager::GetInstance()->SetCrosshair(); // Points m_pkCrosshair to this object, sets Scale Adjustment
 	pkCrosshair->setName("myMissingCrosshair"); //SMB check
 	pkCrosshair->setDisplayTime(5000); //SMB check
 	pkCrosshair->setOrigin(0.75000f, 0.75000f);  //SMB check
@@ -231,22 +237,23 @@ void ScenarioParser::ParseCrosshair(XMLNode* pkNode)
 	//AimManager::GetInstance()->SetCrosshair(pkCrosshair); // Points m_pkCrosshair to this object, sets Scale Adjustment
 
 	// This code copied directly from Presagis example RedAim_overlay.cpp - doesn't display the .png file
-/*
-	vpOverlay2DImage* pOverlay2DImage_myOverlay2DImage = new vpOverlay2DImage(); //SMB check
-	pOverlay2DImage_myOverlay2DImage->setName("myOverlay2DImage"); //SMB check
-	pOverlay2DImage_myOverlay2DImage->setEnable(true); //SMB check
-	pOverlay2DImage_myOverlay2DImage->addImageFile("RedBlueAim.png"); //SMB check
-	pOverlay2DImage_myOverlay2DImage->setDisplayTime(5000); //SMB check
-	pOverlay2DImage_myOverlay2DImage->setOrigin(0.185000f, 0.155000f);  //SMB check
-	pOverlay2DImage_myOverlay2DImage->setScale(0.460000f, 0.440000f); //SMB check
-	pOverlay2DImage_myOverlay2DImage->setFadeInDuration(0); //SMB check
-	pOverlay2DImage_myOverlay2DImage->setFadeOutDuration(0); //SMB check
-	pOverlay2DImage_myOverlay2DImage->setBlinkingEnable(false); //SMB check
-	pOverlay2DImage_myOverlay2DImage->setRenderingPriority(100); //SMB check
-*/
+
+//	vpOverlay2DImage* pOverlay2DImage_myOverlay2DImage = new vpOverlay2DImage(); //SMB check
+//	pOverlay2DImage_myOverlay2DImage->setName("myOverlay2DImage"); //SMB check
+//	pOverlay2DImage_myOverlay2DImage->setEnable(true); //SMB check
+//	pOverlay2DImage_myOverlay2DImage->addImageFile("RedBlueAim.png"); //SMB check
+//	pOverlay2DImage_myOverlay2DImage->setDisplayTime(5000); //SMB check
+//	pOverlay2DImage_myOverlay2DImage->setOrigin(0.185000f, 0.155000f);  //SMB check
+//	pOverlay2DImage_myOverlay2DImage->setScale(0.460000f, 0.440000f); //SMB check
+//	pOverlay2DImage_myOverlay2DImage->setFadeInDuration(0); //SMB check
+//	pOverlay2DImage_myOverlay2DImage->setFadeOutDuration(0); //SMB check
+//	pOverlay2DImage_myOverlay2DImage->setBlinkingEnable(false); //SMB check
+//	pOverlay2DImage_myOverlay2DImage->setRenderingPriority(100); //SMB check
+
 	//AimManager::GetInstance()->SetCrosshair(pOverlay2DImage_myOverlay2DImage); // Points m_pkCrosshair to this object, sets Scale Adjustment
 
 }
+*/
 
 void ScenarioParser::ParseTargetType(XMLNode* pkNode)
 {

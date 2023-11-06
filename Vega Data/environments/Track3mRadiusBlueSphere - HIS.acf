@@ -9,7 +9,7 @@ xmlns="urn://www.presagis.com"
     xmlns:vpMarine="urn://www.presagis.com/vpMarine"
 >
 
-<vp:AcfInfo name="Track3mRadiusBlackSphere.acf">
+<vp:AcfInfo name="Track3mRadiusBlueSphere.acf">
     <vp:initializeModule>vpEnv</vp:initializeModule>
     <vp:initializeModule>vpMotion</vp:initializeModule>
     <vp:initializeModule>vpMarine</vp:initializeModule>
@@ -81,7 +81,7 @@ xmlns="urn://www.presagis.com"
      <vp:left>1920</vp:left>
       Office widescreen monitor <vp:left>830</vp:left>
   -->
-      <vp:left>1920</vp:left>
+      <vp:left>830</vp:left>
       <vp:bottom>0</vp:bottom>
     </vp:setOrigin>
     <vp:setSize>
@@ -238,7 +238,7 @@ xmlns="urn://www.presagis.com"
         <vp:z>1</vp:z>
     </vp:setScale>
     <vp:setStaticEnable>false</vp:setStaticEnable>
-    <vp:setFileName>3mRadiusSphereBlack.flt</vp:setFileName>
+    <vp:setFileName>3mRadiusSphereBlue.flt</vp:setFileName>
     <vp:addAttribute refTo="Geometry_Attribute::SphereMarineShip"></vp:addAttribute>
     <vp:setAutoPage>AUTO_PAGE_SYNCHRONOUS</vp:setAutoPage>
     <vp:setManualLODChild>-1</vp:setManualLODChild>
@@ -363,6 +363,18 @@ xmlns="urn://www.presagis.com"
 </vp:ApplicationSettings>
 
 <vpEnv:EnvGlobals name="myEnvGlobals">
+    <vpEnv:addFogMaximumAltitude>
+        <vpEnv:fProportionOfFarClip>0.100000</vpEnv:fProportionOfFarClip>
+        <vpEnv:fFogMaximumAltitude>300.000000</vpEnv:fFogMaximumAltitude>
+    </vpEnv:addFogMaximumAltitude>
+    <vpEnv:addFogMaximumAltitude>
+        <vpEnv:fProportionOfFarClip>0.250000</vpEnv:fProportionOfFarClip>
+        <vpEnv:fFogMaximumAltitude>1200.000000</vpEnv:fFogMaximumAltitude>
+    </vpEnv:addFogMaximumAltitude>
+    <vpEnv:addFogMaximumAltitude>
+        <vpEnv:fProportionOfFarClip>0.400000</vpEnv:fProportionOfFarClip>
+        <vpEnv:fFogMaximumAltitude>2000.000000</vpEnv:fFogMaximumAltitude>
+    </vpEnv:addFogMaximumAltitude>
     <vpEnv:setEnvironmentMapGenerationEnable>false</vpEnv:setEnvironmentMapGenerationEnable>
 </vpEnv:EnvGlobals>
 
@@ -584,6 +596,25 @@ xmlns="urn://www.presagis.com"
     <vpOverlay:setBlinkingEnable>false</vpOverlay:setBlinkingEnable>
     <vpOverlay:setRenderingPriority>100</vpOverlay:setRenderingPriority>
 </vpOverlay:Overlay2DImage>
+<!-- SMB: not needed, kept for example code
+  <vpOverlay:Overlay2DImage name="SMBSphere">
+    <vpOverlay:setEnable>true</vpOverlay:setEnable>
+    <vpOverlay:addImageFile>SMBSphere.png</vpOverlay:addImageFile>
+    <vpOverlay:setDisplayTime>50000</vpOverlay:setDisplayTime>
+    <vpOverlay:setOrigin>
+      <vpOverlay:x>0.495000</vpOverlay:x>
+      <vpOverlay:y>0.493000</vpOverlay:y>
+    </vpOverlay:setOrigin>
+    <vpOverlay:setScale>
+      <vpOverlay:x>0.013000</vpOverlay:x>
+      <vpOverlay:y>0.018000</vpOverlay:y>
+    </vpOverlay:setScale>
+    <vpOverlay:setFadeInDuration>0</vpOverlay:setFadeInDuration>
+    <vpOverlay:setFadeOutDuration>0</vpOverlay:setFadeOutDuration>
+    <vpOverlay:setBlinkingEnable>false</vpOverlay:setBlinkingEnable>
+    <vpOverlay:setRenderingPriority>100</vpOverlay:setRenderingPriority>
+  </vpOverlay:Overlay2DImage>
+-->
   
 <vpMarine:MarineWaveGeneratorFFT name="myMarineWaveGeneratorFFT">
     <vpMarine:setMeshResolution>

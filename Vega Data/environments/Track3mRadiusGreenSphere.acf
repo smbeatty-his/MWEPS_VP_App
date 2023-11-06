@@ -81,7 +81,7 @@ xmlns="urn://www.presagis.com"
      <vp:left>1920</vp:left>
       Office widescreen monitor <vp:left>830</vp:left>
   -->
-      <vp:left>830</vp:left>
+      <vp:left>1920</vp:left>
       <vp:bottom>0</vp:bottom>
     </vp:setOrigin>
     <vp:setSize>
@@ -596,25 +596,6 @@ xmlns="urn://www.presagis.com"
     <vpOverlay:setBlinkingEnable>false</vpOverlay:setBlinkingEnable>
     <vpOverlay:setRenderingPriority>100</vpOverlay:setRenderingPriority>
 </vpOverlay:Overlay2DImage>
-<!-- SMB: not needed, kept for example code
-  <vpOverlay:Overlay2DImage name="SMBSphere">
-    <vpOverlay:setEnable>true</vpOverlay:setEnable>
-    <vpOverlay:addImageFile>SMBSphere.png</vpOverlay:addImageFile>
-    <vpOverlay:setDisplayTime>50000</vpOverlay:setDisplayTime>
-    <vpOverlay:setOrigin>
-      <vpOverlay:x>0.495000</vpOverlay:x>
-      <vpOverlay:y>0.493000</vpOverlay:y>
-    </vpOverlay:setOrigin>
-    <vpOverlay:setScale>
-      <vpOverlay:x>0.013000</vpOverlay:x>
-      <vpOverlay:y>0.018000</vpOverlay:y>
-    </vpOverlay:setScale>
-    <vpOverlay:setFadeInDuration>0</vpOverlay:setFadeInDuration>
-    <vpOverlay:setFadeOutDuration>0</vpOverlay:setFadeOutDuration>
-    <vpOverlay:setBlinkingEnable>false</vpOverlay:setBlinkingEnable>
-    <vpOverlay:setRenderingPriority>100</vpOverlay:setRenderingPriority>
-  </vpOverlay:Overlay2DImage>
--->
   
 <vpMarine:MarineWaveGeneratorFFT name="myMarineWaveGeneratorFFT">
     <vpMarine:setMeshResolution>
