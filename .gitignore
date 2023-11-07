@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Debug_64_vc142/MWEPS.tlog/CL.1104.write.1.tlog
+/Debug_64_vc142/MWEPS.tlog/link.delete.1.tlog
+/Debug_64_vc22/MWEPS.tlog/link.delete.1.tlog
