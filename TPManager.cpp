@@ -72,12 +72,12 @@ TPManager::TPManager(const char* sShareNameWeaponManager) : m_hWMShare(NULL), m_
 	ASSERT(m_pkIGShare)
 
 	//SMB: 19 Oct 2023 - handle initialization when we get the IOS_INITIALIZE_SCENARIO command
-		// WAS 
+		// WAS similar to below, using "DemoScenario" files
 	//SMB: 09 Nov 2023 - special code to enable Presagis to run without Weapon Manager
-	m_pkWMShare->Ev[0].iEventType = IOS_INITIALIZE_SCENARIO;
-	m_pkWMShare->Ev[0].bEvent = true;
-		strcpy(m_pkWMShare->Ev[0].sData, "C:\\Presagis\\Suite22\\Vega_Prime_22_0\\projects\\MWEPS\\Vega Data\\environments\\Track3mRadiusBlueSphere - HIS.acf");
-		strcpy(&(m_pkWMShare->Ev[0].sData[512]), "C:\\Presagis\\Suite22\\Vega_Prime_22_0\\projects\\MWEPS\\Vega Data\\scenarios\\X_HIS_Track1000mBlueSphere30sec.xml");	
+	//m_pkWMShare->Ev[0].iEventType = IOS_INITIALIZE_SCENARIO;
+	//m_pkWMShare->Ev[0].bEvent = true;
+	//	strcpy(m_pkWMShare->Ev[0].sData, "C:\\Presagis\\Suite22\\Vega_Prime_22_0\\projects\\MWEPS\\Vega Data\\environments\\Track3mRadiusBlueSphere - HIS.acf");
+	//	strcpy(&(m_pkWMShare->Ev[0].sData[512]), "C:\\Presagis\\Suite22\\Vega_Prime_22_0\\projects\\MWEPS\\Vega Data\\scenarios\\X_HIS_Track1000mBlueSphere30sec.xml");	
 	//  printf("m_pkWMShare: ACF Filename: %s     Scenario Filename: %s \r\n",
 	//m_pkWMShare->Ev[0].sData, &(m_pkWMShare->Ev[0].sData[512]));
 
@@ -471,13 +471,19 @@ const int TPManager::ProcessIncomingEvents(const double dElapsedTime)
 				//SMB: 26 Oct 2023 - Handle IOS_WM_SHOW_CROSSHAIR and IOS_WM_SHOW_CURSOR events also, 
 				//     which are sent from WeaponManager
 				case IOS_WM_SHOW_CROSSHAIR:
-				{	// Toggle the Crosshair display
-					if (AimManager::GetInstance()->GetCrosshair()->getEnable() == false) {
-						AimManager::GetInstance()->GetCrosshair()->setEnable(true);
-						DEBUG_PRINT("Toggle Crosshair: Enabled\n");
-					} else {
-						AimManager::GetInstance()->GetCrosshair()->setEnable(false);
-						DEBUG_PRINT("Toggle Crosshair: Disabled\n");
+				{	// Change the Crosshair display - 0 means enable, any other number means toggle,
+					if (m_pkWMShare->Ev[i].iData[0] == 0) { 
+						AimManager::GetInstance()->GetCrosshair()->setEnable(true); 
+						DEBUG_PRINT("Crosshair: Enabled\n");
+					}
+					else { // Toggle the state of the Crosshair
+						if (AimManager::GetInstance()->GetCrosshair()->getEnable() == false) {
+							AimManager::GetInstance()->GetCrosshair()->setEnable(true);
+							DEBUG_PRINT("Crosshair: Enabled\n");
+						} else {
+							AimManager::GetInstance()->GetCrosshair()->setEnable(false);
+							DEBUG_PRINT("Crosshair: Disabled\n");
+						}
 					}
 					m_pkWMShare->Ev[i].bEvent = false;
 					break;

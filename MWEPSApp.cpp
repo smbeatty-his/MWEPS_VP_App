@@ -164,7 +164,6 @@ void MWEPSApp::onKeyInput(vrWindow::Key kKey, int iMod)
 		case vrWindow::KEY_O:
 		case vrWindow::KEY_o:
 		{
-			printf("Toggle Ocean Enabled\n");
 			WMEvent kEvent;
 			kEvent.bEvent = true;
 			kEvent.iEventType = IOS_SET_ENABLE_OCEAN;
@@ -179,6 +178,7 @@ void MWEPSApp::onKeyInput(vrWindow::Key kKey, int iMod)
 			WMEvent kEvent;
 			kEvent.bEvent = true;
 			kEvent.iEventType = IOS_WM_SHOW_CROSSHAIR;
+			kEvent.iData[0] = 1;	//Toggle the Crosshair state: displayed or hidden
 			TPManager::GetInstance()->TestIncomingEvent(kEvent);
 			break;
 		}
@@ -386,10 +386,11 @@ void MWEPSApp::SetEnableOcean(const bool bEnabled)
 	if (m_bEnableOcean && m_kState == MWEPSApp::RUNNING)
 	{
 		OceanManager::GetInstance()->EnableOcean();
+		DEBUG_PRINT("Ocean: Enabled\n");
 	}
-
 	else if(! m_bEnableOcean)
 	{
 		OceanManager::GetInstance()->DisableOcean();
+		DEBUG_PRINT("Ocean: Disabled\n");
 	}
 }
