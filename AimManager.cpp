@@ -18,8 +18,6 @@ AimManager::AimManager(int iPulseRate) : m_pkCrosshair(NULL)
 	m_iAimPulseRate = iPulseRate;
 	m_dAimPulseDelay = 1.0 / iPulseRate;
 	m_dAimDelayedTime = 0.0;
-	// SMB: local variable never used
-	// vpChannel* pkChannel = *vpChannel::begin();
 	m_kIsector = new vpIsectorLOS();
 	m_kIsector->ref();
 	m_kIsector->setTarget(*vpScene::begin());

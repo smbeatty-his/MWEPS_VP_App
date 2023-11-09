@@ -73,10 +73,11 @@ TPManager::TPManager(const char* sShareNameWeaponManager) : m_hWMShare(NULL), m_
 
 	//SMB: 19 Oct 2023 - handle initialization when we get the IOS_INITIALIZE_SCENARIO command
 		// WAS 
-	//m_pkWMShare->Ev[0].iEventType = IOS_INITIALIZE_SCENARIO;
-	//m_pkWMShare->Ev[0].bEvent = true;
-	//	strcpy(m_pkWMShare->Ev[0].sData, "Track3mRadiusBlueSphere.acf");
-	//	strcpy(&(m_pkWMShare->Ev[0].sData[256]), "Track1000mBlueSphere30sec.xml");	
+	//SMB: 09 Nov 2023 - special code to enable Presagis to run without Weapon Manager
+	m_pkWMShare->Ev[0].iEventType = IOS_INITIALIZE_SCENARIO;
+	m_pkWMShare->Ev[0].bEvent = true;
+		strcpy(m_pkWMShare->Ev[0].sData, "C:\\Presagis\\Suite22\\Vega_Prime_22_0\\projects\\MWEPS\\Vega Data\\environments\\Track3mRadiusBlueSphere - HIS.acf");
+		strcpy(&(m_pkWMShare->Ev[0].sData[512]), "C:\\Presagis\\Suite22\\Vega_Prime_22_0\\projects\\MWEPS\\Vega Data\\scenarios\\X_HIS_Track1000mBlueSphere30sec.xml");	
 	//  printf("m_pkWMShare: ACF Filename: %s     Scenario Filename: %s \r\n",
 	//m_pkWMShare->Ev[0].sData, &(m_pkWMShare->Ev[0].sData[512]));
 
