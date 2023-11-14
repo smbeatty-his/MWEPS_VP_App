@@ -178,8 +178,19 @@ void MWEPSApp::onKeyInput(vrWindow::Key kKey, int iMod)
 			WMEvent kEvent;
 			kEvent.bEvent = true;
 			kEvent.iEventType = IOS_WM_SHOW_CROSSHAIR;
-			kEvent.iData[0] = 1;	//Toggle the Crosshair state: displayed or hidden
+			kEvent.iData[0] = 2;	//Toggle the Crosshair state (any number other than 0 or 1): displayed or hidden
 			TPManager::GetInstance()->TestIncomingEvent(kEvent);
+			break;
+		}
+
+		case vrWindow::KEY_T:
+		case vrWindow::KEY_t:
+		{
+
+			//SMB 14 Nov 2023: Show the target 
+			TargetManager::GetInstance()->ShowTarget();
+			TargetManager::GetInstance()->Update(m_dElapsedTime, m_dElapsedTime);
+
 			break;
 		}
 

@@ -107,14 +107,14 @@ void AimManager::PushAim(const WMEvent& kEvent, const double dReceiveTime)
 */
 	GetScreenCoordinates(&fAimScreenX, &fAimScreenY);  //SMB: Converts to Screen Coordinates -1.0 to 1.0
 
-	// SMB 14 Aug 2023: Move our Crosshair accordingly
+	// SMB Note: Crosshair display is disabled by default in the ACF file. 
+	//			 Crosshair display is enabled with IOS_WM_SHOW_CROSSHAIR event
 	// SMB 14 Aug 2023: Convert to 0.0 to 1.0 for Crosshair origin and add Crosshair adjustments
-//	m_pkAimCrosshair->setOrigin( ((fAimScreenX + 1.0f) / 2.0f) - m_vfCrosshairAdjustment[0],
-//		((fAimScreenY + 1.0f) / 2.0f) - m_vfCrosshairAdjustment[1]); // 0.0 to 1.0
-//	m_pkAimCrosshair->setEnable(TRUE); // It's turned off by default in the ACF file. 
-									   // It's turned on with IOS_WM_SHOW_CROSSHAIR event
-	m_pkAimCrosshair->setOrigin(((fAimScreenX + 1.0f) / 2.0f) - 0.0018 ,
-		((fAimScreenY + 1.0f) / 2.0f) + 0.038); // 0.0 to 1.0
+	m_pkAimCrosshair->setOrigin( ((fAimScreenX + 1.0f) / 2.0f) - m_vfCrosshairAdjustment[0],
+		((fAimScreenY + 1.0f) / 2.0f) - m_vfCrosshairAdjustment[1]); // 0.0 to 1.0
+	//SMB Sep 2023 added these offsets to get Crosshair to point at same spot crosshair on ROSAM display was pointing
+//	m_pkAimCrosshair->setOrigin(((fAimScreenX + 1.0f) / 2.0f) - 0.0018 ,
+//		((fAimScreenY + 1.0f) / 2.0f) + 0.038); // 0.0 to 1.0
 
 	double dHeading, dPitch;
 	vuVec3<double> vdAimDirection;
@@ -195,20 +195,6 @@ void AimManager::SetCrosshair()
 	m_pkAimCrosshair->getScale(&fScaleX, &fScaleY);
 	m_vfCrosshairAdjustment.set(fScaleX / 2.0f, fScaleY / 2.0f);
 }
-
-// SMB 06Nov2023 - We don't call this anymore. Crosshair responds to Laser spot
-//				   That's handled with PushAim and event IOS_WM_AIM
-//				   m_pkCrosshair is not longer used
-/*
-void AimManager::UpdateCrosshairPosition(const WMEvent &kEvent)
-{
-	ASSERT(m_pkCrosshair)
-
-	//SMB 10 Aug 2023: m_pkCrosshair WILL NOT BE DISPLAYED ... don't know why
-		m_pkCrosshair->setOrigin(kEvent.fData[0] - m_vfCrosshairAdjustment[0],
-								kEvent.fData[1] - m_vfCrosshairAdjustment[1]);
-}
-*/
 
 void AimManager::ClearAimRecords(void)
 {

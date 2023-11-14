@@ -277,7 +277,7 @@ const int TPManager::ProcessIncomingEvents(const double dElapsedTime)
 				case IOS_EXIT_IGAPP:
 				{
 					m_pkApp->EndScenario();
-					m_pkApp->breakFrameLoop(); // This will purportedly end the run loop - still get Error Box popup
+					//m_pkApp->breakFrameLoop(); // This will purportedly end the run loop - still get Error Box popup
 
 					m_pkWMShare->Ev[i].bEvent = false;
 					break;
@@ -471,18 +471,21 @@ const int TPManager::ProcessIncomingEvents(const double dElapsedTime)
 				//SMB: 26 Oct 2023 - Handle IOS_WM_SHOW_CROSSHAIR and IOS_WM_SHOW_CURSOR events also, 
 				//     which are sent from WeaponManager
 				case IOS_WM_SHOW_CROSSHAIR:
-				{	// Change the Crosshair display - 0 means enable, any other number means toggle,
-					if (m_pkWMShare->Ev[i].iData[0] == 0) { 
+				{	// Change the Crosshair display - 0 means disable, 1 means enable, any other number means toggle,
+					if (m_pkWMShare->Ev[i].iData[0] == 1) { 
 						AimManager::GetInstance()->GetCrosshair()->setEnable(true); 
 						DEBUG_PRINT("Crosshair: Enabled\n");
+					}	else if (m_pkWMShare->Ev[i].iData[0] == 0) {
+						AimManager::GetInstance()->GetCrosshair()->setEnable(false);
+						DEBUG_PRINT("Crosshair: Disabled\n");
 					}
 					else { // Toggle the state of the Crosshair
 						if (AimManager::GetInstance()->GetCrosshair()->getEnable() == false) {
 							AimManager::GetInstance()->GetCrosshair()->setEnable(true);
-							DEBUG_PRINT("Crosshair: Enabled\n");
+							DEBUG_PRINT("Crosshair: Toggled (Enabled)\n");
 						} else {
 							AimManager::GetInstance()->GetCrosshair()->setEnable(false);
-							DEBUG_PRINT("Crosshair: Disabled\n");
+							DEBUG_PRINT("Crosshair: Toggled (Disabled)\n");
 						}
 					}
 					m_pkWMShare->Ev[i].bEvent = false;
